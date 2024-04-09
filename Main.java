@@ -5,6 +5,6 @@ public class Main{
       Menu.printMenu();
       Orders.addOrder(1);
       
-      
+      Orders.printOrders();
    }
 }

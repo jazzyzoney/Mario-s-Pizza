@@ -13,4 +13,10 @@ public class Orders{
          orderList.add(Menu.menu.get(pizzaNo));
       }
    }
+   
+   public static void printOrders(){
+      for(Pizza p: orderList){
+         System.out.println(p.name);
+      }
+   }
 }
