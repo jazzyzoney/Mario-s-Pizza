@@ -3,7 +3,7 @@ public class Main{
       Menu.addPizzamenu();
       
       Menu.printMenu();
-      Orders.addOrder(1);
+      Orders.addOrder(2);
       
       Orders.printOrders();
    }

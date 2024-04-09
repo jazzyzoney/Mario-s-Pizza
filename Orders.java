@@ -2,21 +2,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Orders{
-   static ArrayList<Pizza> orderList = new ArrayList <Pizza>();
+   static ArrayList<ArrayList> orderList = new ArrayList <ArrayList>(); 
+   
    static Scanner scanner = new Scanner(System.in);
    
    public static void addOrder(int addPizzas){
+      
+      ArrayList <Pizza> order = new ArrayList <Pizza>();
       for(int i = 0; i < addPizzas; i++){
          System.out.println("Pizza nr: ");
          int pizzaNo = scanner.nextInt();
          
-         orderList.add(Menu.menu.get(pizzaNo));
+         order.add(Menu.menu.get(pizzaNo));
       }
+      orderList.add(order);
    }
    
    public static void printOrders(){
-      for(Pizza p: orderList){
-         System.out.println(p.name);
-      }
+      for (ArrayList order: orderList){ 
+         System.out.println("hej");
+         System.out.println(order);
+         
+         for(Pizza p : order){
+            System.out.println(p);
+         }//end of inner loop
+      }//end of outer loop
    }
 }
