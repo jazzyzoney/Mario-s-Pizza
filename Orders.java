@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Orders{
-   static ArrayList<ArrayList<Pizza>> orderList = new ArrayList <ArrayList<Pizza>>(); 
-   
+   static ArrayList<ArrayList<Pizza>> orderList = new ArrayList <ArrayList<Pizza>>(); //nested arraylist. 
    static Scanner scanner = new Scanner(System.in);
 
    public static void addOrder(int addPizzas){
