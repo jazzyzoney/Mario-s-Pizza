@@ -9,6 +9,7 @@ public class Orders{
       for(int i = 0; i <= addPizzas; i++){
          System.out.println("Pizza nr: ");
          int pizzaNo = scanner.nextInt();
+         
          orderList.add(Menu.menu.get(pizzaNo));
       }
    }

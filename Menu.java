@@ -2,13 +2,16 @@ import java.util.*;
 
 public class Menu{
 
-static ArrayList<Menu> Menu = new ArrayList<>();
+   static ArrayList<Pizza> menu = new ArrayList<>();
+   
+   //name, price, number
+   public Menu(){
+      menu.add(new Pizza("Vesuvio", 57, 1));
+      menu.add(new Pizza("Amerikaner", 53, 2));
+      menu.add(new Pizza("Cacciatore", 57, 3));
+   }
+   
+   public static void printPizzas(){
 
-//name, price, number
-public Menu(){
-Menu.add(new Pizza("Vesuvio", 57, 1));
-Menu.add(new Pizza("Amerikaner", 53, 2));
-Menu.add(new Pizza("Cacciatore", 57, 3));
-
-}
+   }
 }
