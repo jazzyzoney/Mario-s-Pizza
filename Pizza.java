@@ -8,4 +8,7 @@ public class Pizza{
       this.price = price;
       this.number = number;
    }
+   
+   public void printPizzas();
+   System.out.println(number + ". " + name + " " + price + ",-");
 }
