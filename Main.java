@@ -1,5 +1,10 @@
 public class Main{
    public static void main(String[] args){
-Menu.printMenu();
+      Menu.addPizzamenu();
+      
+      Menu.printMenu();
+      Orders.addOrder(1);
+      
+      
    }
 }

@@ -10,6 +10,6 @@ public class Pizza{
    }
    
    public void printPizzas(){
-   System.out.println(number + ". " + name + " " + price + ",-");
-}
+      System.out.println(number + ". " + name + " " + price + ",-");
+   }
 }

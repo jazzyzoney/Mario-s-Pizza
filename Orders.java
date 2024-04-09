@@ -6,7 +6,7 @@ public class Orders{
    static Scanner scanner = new Scanner(System.in);
    
    public static void addOrder(int addPizzas){
-      for(int i = 0; i <= addPizzas; i++){
+      for(int i = 0; i < addPizzas; i++){
          System.out.println("Pizza nr: ");
          int pizzaNo = scanner.nextInt();
          
