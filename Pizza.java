@@ -9,6 +9,7 @@ public class Pizza{
       this.number = number;
    }
    
-   public void printPizzas();
+   public void printPizzas(){
    System.out.println(number + ". " + name + " " + price + ",-");
+}
 }
