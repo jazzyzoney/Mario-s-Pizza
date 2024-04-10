@@ -36,15 +36,17 @@ public class Orders{
    
    public static void completeOrder(int orderNo){
       try{
-         file = new File("Pizza Info");
+         file = new File("Pizza Info");//creates new savefile if none exists
          if (!file.exists()){
             file.createNewFile();
          }
          
          writer = new FileWriter("Pizza Info", true);
-         for (int i = 0; i < orderList.get(orderNo).size(); i++){
-            writer.write(orderList.get(orderNo).get(i).number + " " + orderList.get(orderNo).get(i).price);//virker ikke :/
+         writer.write("a\n");//marks new order
+         for (int i = 0; i < orderList.get(orderNo - 1).size(); i++){//writing index and price to file for each pizza
+            writer.write(orderList.get(orderNo -1).get(i).number + " " + orderList.get(orderNo -1).get(i).price + "\n");//virker ikke :/
          }
+         
          writer.close();
 
       }catch(Exception e){
