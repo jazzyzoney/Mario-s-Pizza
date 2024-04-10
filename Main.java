@@ -26,11 +26,13 @@ static Scanner scanner = new Scanner(System.in);
          break; 
          
          case "delete":
-         Orders.deleteOrder();
+          int deletenumber = scanner.nextInt();
+         Orders.deleteOrder(deletenumber);
          break;
          
          case "view":
-         Orders.deleteOrder();
+         
+        Orders.printOrders();
          break;
 
          case "Q":
