@@ -8,6 +8,7 @@ public class Main{
       
       Orders.printOrders();
       Orders.completeOrder(1);
+      System.out.println();
       Orders.printOrders();
    }
 }

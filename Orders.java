@@ -9,16 +9,28 @@ public class Orders{
    static FileWriter writer;
 
    public static void addOrder(int addPizzas){
-      
       ArrayList <Pizza> order = new ArrayList <Pizza>();
-      for(int i = 0; i < addPizzas; i++){
+      
+      for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
          System.out.println("Pizza nr: ");
-         int pizzaNo = scanner.nextInt();
+         boolean sentinel;//sentinel
          
-         order.add(Menu.menu.get(pizzaNo));
-      }
-      orderList.add(order);
-   }
+         do{
+            try{
+               int pizzaNo = scanner.nextInt() - 1;
+               order.add(Menu.menu.get(pizzaNo));
+               sentinel = true;
+            }catch(Exception e){
+               System.out.println("fejl: " + e);
+               System.out.println("indtast et tal fra pizzamenuen");
+               scanner.next();
+               sentinel = false;
+            }
+         }while(sentinel == false); 
+      }//end of for loop.
+      
+      orderList.add(order);//adding order arraylist to orderlist arraylist
+   }//end of add pizzas method
    
    
    public static void printOrders(){
