@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class Main{
    static Scanner scanner = new Scanner (System.in);
-   public static void main (String [] args){
+   public static void textUI (){
       String Letters = ""; 
       System.out.print("Mamma mia velkommen til Mario's pizza order system");
       Menu.addPizzamenu();
@@ -35,16 +35,18 @@ public class Main{
 
          case "Q":
          System.exit(0); 
-}
-
+      }
+   }
       
-      
-
       //Orders.addOrder();
       //Orders.completeOrder();
       //Orders.deleteOrder();
       
       //Orders.printOrders();
+
+   public static void main (String [] args){
+      textUI();
+      
       SwingUtilities.invokeLater(()->{ 
          new UI();
       });
