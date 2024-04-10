@@ -25,7 +25,8 @@ public class UI{
       
       
       JButton addButton = new JButton("Ny ordre");
-      //addButton.
+      addButton.setBackground(new Color(200,200,255));
+      
       JButton deleteButton = new JButton("slet");
       JButton completeButton = new JButton ("færdig");
       
@@ -35,6 +36,7 @@ public class UI{
       
       aFrame.add(aPanel);
    }
+
    
    public static void marioFrame(){
       statisticsFrame();
@@ -45,5 +47,6 @@ public class UI{
    }
    
    public static void deleteOrderFrame(){
+      
    }
 }
