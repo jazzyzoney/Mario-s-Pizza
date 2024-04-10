@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import javax.swing.*;
 
 public class Main{
 static Scanner scanner = new Scanner(System.in);
@@ -44,5 +45,8 @@ static Scanner scanner = new Scanner(System.in);
       //Orders.deleteOrder();
       
       //Orders.printOrders();
+      SwingUtilities.invokeLater(()->{ 
+         new UI();
+      });
    }
 }
