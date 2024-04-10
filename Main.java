@@ -4,7 +4,10 @@ public class Main{
       
       Menu.printMenu();
       Orders.addOrder(2);
+      Orders.addOrder(2);
       
+      Orders.printOrders();
+      Orders.completeOrder(1);
       Orders.printOrders();
    }
 }

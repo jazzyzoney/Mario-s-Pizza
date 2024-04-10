@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class Orders{
    static ArrayList<ArrayList<Pizza>> orderList = new ArrayList <ArrayList<Pizza>>(); //nested arraylist. 
    static Scanner scanner = new Scanner(System.in);
+   static File file;
 
    public static void addOrder(int addPizzas){
       
@@ -29,5 +31,20 @@ public class Orders{
          }//end of inner loop
          i ++;
       }//end of outer loop
+   }
+   
+   public static void completeOrder(int orderNo){
+      orderList.remove(orderNo -1);
+      try{
+         file = new File("Pizza Info");
+         if (!file.exists()){
+            file.createNewFile();
+         }
+         PrintStream printstream = new PrintStream("Pizza Info");
+         //Lave 
+         
+      }catch(Exception e){
+         System.out.println("fejl: " + e);
+      }
    }
 }
