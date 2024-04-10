@@ -2,15 +2,14 @@ import java.util.Scanner;
 import javax.swing.*;
 
 public class Main{
-static Scanner scanner = new Scanner(System.in);
-
-   public static void main(String[] args){
-   String Letters = ""; 
+   static Scanner scanner = new Scanner (System.in);
+   public static void main (String [] args){
+      String Letters = ""; 
       System.out.print("Mamma mia velkommen til Mario's pizza order system");
       Menu.addPizzamenu();
       Menu.printMenu();
       System.out.print("du har nu fire valgmuligheder");
-            System.out.print("add" + "" + "som tilføjer en ny order" + "" + "done" + ""+ "done som færdiggør orderen"+ "" + "view" + "hvor man kan se ordre"+ "" + "q" + "som lukker programet");
+            System.out.print("add" + "" + "som tilfï¿½jer en ny order" + "" + "done" + ""+ "done som fï¿½rdiggï¿½r orderen"+ "" + "view" + "hvor man kan se ordre"+ "" + "q" + "som lukker programet");
       
       Letters = scanner.next();
       switch (Letters){
@@ -30,8 +29,7 @@ static Scanner scanner = new Scanner(System.in);
          Orders.deleteOrder(deletenumber);
          break;
          
-         case "view":
-         
+         case "view":         
         Orders.printOrders();
          break;
 
