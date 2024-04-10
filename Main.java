@@ -1,15 +1,16 @@
+import java.util.Scanner;
+
 public class Main{
+static Scanner scanner = new Scanner(System.in);
+
    public static void main(String[] args){
       Menu.addPizzamenu();
       Menu.printMenu();
-      Orders.addOrder(2);
-      Orders.addOrder(2);
+
+      //Orders.addOrder();
+      //Orders.completeOrder();
+      //Orders.deleteOrder();
       
-      Orders.printOrders();
-      Orders.completeOrder(1);
-      System.out.println();
-      Orders.printOrders();
-      
-      Orders.deleteOrder(1);
+      //Orders.printOrders();
    }
 }
