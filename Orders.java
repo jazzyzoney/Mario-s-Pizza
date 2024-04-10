@@ -35,7 +35,7 @@ public class Orders{
    }
    
    public static void completeOrder(int orderNo){
-      orderList.remove(orderNo -1);
+      
       try{
          file = new File("Pizza Info");
          if (!file.exists()){
@@ -43,11 +43,12 @@ public class Orders{
          }
          
          writer = new FileWriter("Pizza Info", true);
-         writer.write("hej\n");
+         writer.write(orderList.get(orderNo -1).get(0).name + "\n");
          writer.close();
-         
+
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }
+      orderList.remove(orderNo -1);
    }
 }
