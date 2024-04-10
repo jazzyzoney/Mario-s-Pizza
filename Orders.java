@@ -6,6 +6,7 @@ public class Orders{
    static ArrayList<ArrayList<Pizza>> orderList = new ArrayList <ArrayList<Pizza>>(); //nested arraylist. 
    static Scanner scanner = new Scanner(System.in);
    static File file;
+   static FileWriter writer;
 
    public static void addOrder(int addPizzas){
       
@@ -40,8 +41,10 @@ public class Orders{
          if (!file.exists()){
             file.createNewFile();
          }
-         PrintStream printstream = new PrintStream("Pizza Info");
-         //Lave 
+         
+         writer = new FileWriter("Pizza Info", true);
+         writer.write("hej\n");
+         writer.close();
          
       }catch(Exception e){
          System.out.println("fejl: " + e);
