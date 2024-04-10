@@ -1,7 +1,6 @@
 public class Main{
    public static void main(String[] args){
       Menu.addPizzamenu();
-      
       Menu.printMenu();
       Orders.addOrder(2);
       Orders.addOrder(2);
@@ -10,5 +9,7 @@ public class Main{
       Orders.completeOrder(1);
       System.out.println();
       Orders.printOrders();
+      
+      Orders.deleteOrder(1);
    }
 }

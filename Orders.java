@@ -13,8 +13,8 @@ public class Orders{
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
          System.out.println("Pizza nr: ");
-         boolean sentinel;//sentinel
          
+         boolean sentinel;//sentinel
          do{
             try{
                int pizzaNo = scanner.nextInt() - 1;
@@ -47,6 +47,7 @@ public class Orders{
    }
    
    public static void completeOrder(int orderNo){
+      orderNo --;
       try{
          file = new File("Pizza Info");//creates new savefile if none exists
          if (!file.exists()){
@@ -55,8 +56,8 @@ public class Orders{
          
          writer = new FileWriter("Pizza Info", true);
          writer.write("a\n");//marks new order
-         for (int i = 0; i < orderList.get(orderNo - 1).size(); i++){//writing index and price to file for each pizza
-            writer.write(orderList.get(orderNo -1).get(i).number + " " + orderList.get(orderNo -1).get(i).price + "\n");//virker ikke :/
+         for (int i = 0; i < orderList.get(orderNo).size(); i++){//writing index and price to file for each pizza
+            writer.write(orderList.get(orderNo).get(i).number + " " + orderList.get(orderNo).get(i).price + "\n");
          }
          
          writer.close();
@@ -64,6 +65,12 @@ public class Orders{
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }
-      orderList.remove(orderNo -1);
+      orderList.remove(orderNo);
+   }
+   
+   public static void deleteOrder(int orderNo){
+      orderNo--;
+      orderList.remove(orderNo);
+      System.out.println("Ordre nr. " + (orderNo + 1) + " slettet.");
    }
 }
