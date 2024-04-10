@@ -35,7 +35,6 @@ public class Orders{
    }
    
    public static void completeOrder(int orderNo){
-      
       try{
          file = new File("Pizza Info");
          if (!file.exists()){
@@ -43,7 +42,9 @@ public class Orders{
          }
          
          writer = new FileWriter("Pizza Info", true);
-         writer.write(orderList.get(orderNo -1).get(0).name + "\n");
+         for (int i = 0; i < orderList.get(orderNo).size(); i++){
+            writer.write(orderList.get(orderNo).get(i).number + " " + orderList.get(orderNo).get(i).price);//virker ikke :/
+         }
          writer.close();
 
       }catch(Exception e){
