@@ -45,7 +45,7 @@ public class Main{
       //Orders.printOrders();
 
    public static void main (String [] args){
-      textUI();
+      //textUI();
       
       SwingUtilities.invokeLater(()->{ 
          new UI();
