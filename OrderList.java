@@ -51,13 +51,12 @@ public class OrderList{
             file.createNewFile();
          }
          
+         //writing to file:
          writer = new FileWriter("Pizza Info", true);
          writer.write("a\n");//marks new order
-         
          for (Pizza p : orderList.get(orderNo).pizzaList){
             writer.write(p.number + " " + p.price + "\n");
          }
-         
          writer.close();
 
       }catch(Exception e){
