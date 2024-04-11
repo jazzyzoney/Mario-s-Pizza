@@ -4,11 +4,7 @@ import javax.swing.*;
 public class Main{
    
    public static void main (String [] args){
-   Menu.addPizzamenu();
-      OrderList.addOrder(2);
-      OrderList.printOrders();
-      OrderList.completeOrder(1);
-      //TextUI.textUI();
+      TextUI.textUI();
       
       /*SwingUtilities.invokeLater(()->{ 
          new UI();
