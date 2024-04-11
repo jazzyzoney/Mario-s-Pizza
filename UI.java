@@ -3,8 +3,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.GridLayout;
+import java.awt.*;
 
-public class UI{
+public class UI {
    
    static JFrame frame;
    static JFrame mFrame;
@@ -19,41 +20,52 @@ public class UI{
       frame = new JFrame();
       frame.setSize(1920,1080);
       frame.setLocation(-10,0);
-      frame.setTitle("Håndter Ordrer");//temporary name
+      frame.setTitle("Ordresystem");//temporary name
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
       
       JPanel aPanel = new JPanel();//alfonsos panel
       aPanel.setBackground(new Color(70,70,70));
       
-     JButton addButton = new JButton("Ny ordre");
-     addButton.setBackground(new Color(200,200,255));
-     aPanel.add(addButton);
+      JButton addButton = new JButton("Ny ordre");
+      addButton.setBackground(new Color(200,200,255));
+      aPanel.add(addButton);
       
-     JButton deleteButton = new JButton("slet");
-     deleteButton.addActionListener(e ->{
-        deleteOrderFrame();
-     });
-     aPanel.add(deleteButton);
+      JTextArea text = new JTextArea("Ordrer:");
+      Font font = new Font("Serif", Font.BOLD, 15);
+      text.setFont(font);
+      aPanel.add(text);
       
-     JButton completeButton = new JButton ("færdig");
-     aPanel.add(completeButton);
-            
-     JPanel mPanel = new JPanel();//marios panel
-     mPanel.setBackground(Color.RED);
-      
+      //Marios panel            
+      JPanel mPanel = new JPanel();
+      mPanel.setBackground(new Color(255, 230, 220));
+     
+      //Delete order button
+      JButton deleteButton = new JButton("slet");
+      deleteButton.addActionListener(
+         e ->{
+            deleteOrderFrame();
+         });
+      mPanel.add(deleteButton);
+     
+      //Complete order button:
+      JButton completeButton = new JButton ("færdig");
+      mPanel.add(completeButton);
+     
+      //Statistics window button:
       JButton statisticsButton = new JButton("Statistik");
-     statisticsButton.addActionListener(e ->{
-        statisticsFrame();
-     });
+      statisticsButton.addActionListener(
+         e ->{
+            statisticsFrame();
+         });
       
-     mPanel.add(statisticsButton);
+      mPanel.add(statisticsButton);
       
-     JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
-     splitpane.setDividerLocation(800);
-     frame.add(splitpane);
-
-      
+      JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
+      //Dimension size = new Dimension();
+      //int width = (int)size.getWidth();
+      splitpane.setDividerLocation(800);
+      frame.add(splitpane); 
    }
 
    public static void deleteOrderFrame(){
@@ -65,29 +77,22 @@ public class UI{
       
       JPanel dPanel = new JPanel();
       JButton yButton = new JButton ("ja");
-      yButton.addActionListener(e -> {
+      yButton.addActionListener(
+         e -> {
          //yes button pressed:
-      });
+         });
       dPanel.add(yButton);
       
       JButton nButton = new JButton ("nej");
-      nButton.addActionListener(e -> {
+      nButton.addActionListener(
+         e -> {
          //no button pressed:
-      });
+         });
       dPanel.add(nButton);
       
       dFrame.add(dPanel);
    }
    
-   public static void marioPanel(int width, int height){
-      /*mFrame = new JFrame();
-      mFrame.setSize(width/2, height-36);
-      mFrame.setTitle("Ordrer");//temporary name
-      mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      mFrame.setVisible(true);
-      mFrame.setLocation(width/2,0);*/
-      
-         }
    
    public static void statisticsFrame(){
       sFrame = new JFrame();
@@ -98,5 +103,11 @@ public class UI{
       sFrame.setTitle("Statistik");
    }
    
-      
+/* @Override   
+   public void paintComponent(Graphics g){
+      super.paintComponent(g);
+      //Rectangle rect = new Rectangle(700, 500);
+      g.setColor(Color.BLACK);
+      g.fillRect(100, 580, 100, 100);
+   }*/
 }

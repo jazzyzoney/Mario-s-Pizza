@@ -30,7 +30,7 @@ public class TextUI{
          System.out.println("hvilken order er done?");
             int sletnummer = scanner.nextInt();
             OrderList.completeOrder(sletnummer);
-            System.out.println("orderen"+ ""+ sletnummer+""+ "er nu blevet makeret som done og gemt til statestikken når jasmin er færdig");
+            System.out.println("orderen"+ ""+ sletnummer+""+ "er nu blevet makeret som done og gemt til statestikken naar jasmin er faerdig");
             break; 
          
          case "delete":

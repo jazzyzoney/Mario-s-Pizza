@@ -9,9 +9,9 @@ public class Main{
      // OrderList.printOrders();
       //TextUI.textUI();
       
-      //SwingUtilities.invokeLater(()->{ 
-        // new UI();
-        TextUI.textUI ();
-      //});
+      SwingUtilities.invokeLater(()->{ 
+         new UI();  
+      });
+      //TextUI.textUI ();
    }
 }
