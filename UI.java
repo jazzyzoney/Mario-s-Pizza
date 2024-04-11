@@ -15,7 +15,7 @@ public class UI{
       size = Toolkit.getDefaultToolkit().getScreenSize(); 
       int width = (int)size.getWidth(); 
       int height = (int)size.getHeight();
-        //hmmm :/
+
       alfonsoFrame(width, height);
       marioFrame(width, height);
       //testFrame(width, height);
