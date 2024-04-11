@@ -5,11 +5,9 @@ public class Menu{
    static ArrayList<Pizza> menu = new ArrayList<>();
 
    public static void addPizzamenu(){
-      
-      
-      
+
       menu.add(new Pizza("Vesuvio", 57));
-      menu.add(new Pizza("Amerikaner", 53));
+      menu.add(new Pizza("Amerikaner", 54));
       menu.add(new Pizza("Cacciatore", 57));
       menu.add(new Pizza("Carbona", 63));
       menu.add(new Pizza("Dennis", 65));
@@ -20,6 +18,24 @@ public class Menu{
       menu.add(new Pizza("Capricciosa", 61));
       menu.add(new Pizza("Hawaii", 61));
       menu.add(new Pizza("Le Blissola", 61));
+      menu.add(new Pizza("Le Blissola", 61));
+      menu.add(new Pizza("Venezia", 61));
+      menu.add(new Pizza("Mafia", 61));
+      menu.add(new Pizza("Le Blissola", 61));
+      menu.add(new Pizza("Frittelli", 52));
+      menu.add(new Pizza("Mamma Mia!", 55));
+      menu.add(new Pizza("Vino Buono", 57));
+      menu.add(new Pizza("Ciao Bella", 120));
+      menu.add(new Pizza("Pizzalocca", 56));
+      menu.add(new Pizza("Salutiamo", 61));
+      menu.add(new Pizza("Gelatoni", 57));
+      menu.add(new Pizza("Il Tigre", 61));
+      menu.add(new Pizza("Luigi", 62));
+      menu.add(new Pizza("Wario", 55));
+      menu.add(new Pizza("Cannolironi", 57));
+      menu.add(new Pizza("Mozzarelloti", 54));
+      menu.add(new Pizza("Pepperonata", 65));
+      menu.add(new Pizza("Pomodorosso", 63));
       
       int i = 0;
       for(Pizza pizza : menu){
