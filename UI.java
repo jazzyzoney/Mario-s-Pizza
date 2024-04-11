@@ -2,57 +2,70 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.GridLayout;
+import java.awt.*;
 
-public class UI{
+public class UI {
    
-   static JFrame aFrame;
+   static JFrame frame;
    static JFrame mFrame;
    static JFrame sFrame;
    static JFrame dFrame;
    
    public UI(){      
-      Dimension size = new Dimension();
-      size = Toolkit.getDefaultToolkit().getScreenSize(); 
-      int width = (int)size.getWidth(); 
-      int height = (int)size.getHeight();
-
-      alfonsoFrame(width, height);
-      marioFrame(width, height);
-      //testFrame(width, height);
+      frame();
    }
    
-   public static void testFrame(int width, int height){
-      JFrame tFrame = new JFrame();
-      tFrame.setVisible(true);
-      tFrame.setSize(width,height);
-   }
-   
-   public static void alfonsoFrame(int width, int height){
-      aFrame = new JFrame();
-      aFrame.setSize(width/2, height-36);
-      aFrame.setLocation(-10,0);
-      aFrame.setTitle("Håndter Ordrer");//temporary name
-      aFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      aFrame.setVisible(true);
+   public static void frame(){
+      frame = new JFrame();
+      frame.setSize(1920,1080);
+      frame.setLocation(-10,0);
+      frame.setTitle("Ordresystem");//temporary name
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setVisible(true);
       
-      JPanel aPanel = new JPanel();
+      JPanel aPanel = new JPanel();//alfonsos panel
       aPanel.setBackground(new Color(70,70,70));
-      
       
       JButton addButton = new JButton("Ny ordre");
       addButton.setBackground(new Color(200,200,255));
       aPanel.add(addButton);
       
+      JTextArea text = new JTextArea("Ordrer:");
+      Font font = new Font("Serif", Font.BOLD, 15);
+      text.setFont(font);
+      aPanel.add(text);
+      
+      //Marios panel            
+      JPanel mPanel = new JPanel();
+      mPanel.setBackground(new Color(255, 230, 220));
+     
+      //Delete order button
       JButton deleteButton = new JButton("slet");
-      deleteButton.addActionListener(e ->{
-         deleteOrderFrame();
-      });
-      aPanel.add(deleteButton);
-      
+      deleteButton.addActionListener(
+         e ->{
+            deleteOrderFrame();
+         });
+      mPanel.add(deleteButton);
+     
+      //Complete order button:
       JButton completeButton = new JButton ("færdig");
-      aPanel.add(completeButton);
+      mPanel.add(completeButton);
+     
+      //Statistics window button:
+      JButton statisticsButton = new JButton("Statistik");
+      statisticsButton.addActionListener(
+         e ->{
+            statisticsFrame();
+         });
       
-      aFrame.add(aPanel);
+      mPanel.add(statisticsButton);
+      
+      JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
+      //Dimension size = new Dimension();
+      //int width = (int)size.getWidth();
+      splitpane.setDividerLocation(800);
+      frame.add(splitpane); 
    }
 
    public static void deleteOrderFrame(){
@@ -60,41 +73,26 @@ public class UI{
       dFrame.setSize(400,150);
       dFrame.setVisible(true);
       dFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      dFrame.setLocationRelativeTo(aFrame);
+      dFrame.setLocationRelativeTo(frame);
       
       JPanel dPanel = new JPanel();
       JButton yButton = new JButton ("ja");
-      yButton.addActionListener(e -> {
+      yButton.addActionListener(
+         e -> {
          //yes button pressed:
-      });
+         });
       dPanel.add(yButton);
       
       JButton nButton = new JButton ("nej");
-      nButton.addActionListener(e -> {
+      nButton.addActionListener(
+         e -> {
          //no button pressed:
-      });
+         });
       dPanel.add(nButton);
       
       dFrame.add(dPanel);
    }
    
-   public static void marioFrame(int width, int height){
-      mFrame = new JFrame();
-      mFrame.setSize(width/2, height-36);
-      mFrame.setTitle("Ordrer");//temporary name
-      mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      mFrame.setVisible(true);
-      mFrame.setLocation(width/2,0);
-      
-      JPanel mPanel = new JPanel();
-      JButton statisticsButton = new JButton("Statistik");
-      statisticsButton.addActionListener(e ->{
-         statisticsFrame();
-      });
-      
-      mPanel.add(statisticsButton);
-      mFrame.add(mPanel);
-   }
    
    public static void statisticsFrame(){
       sFrame = new JFrame();
@@ -105,5 +103,11 @@ public class UI{
       sFrame.setTitle("Statistik");
    }
    
-      
+/* @Override   
+   public void paintComponent(Graphics g){
+      super.paintComponent(g);
+      //Rectangle rect = new Rectangle(700, 500);
+      g.setColor(Color.BLACK);
+      g.fillRect(100, 580, 100, 100);
+   }*/
 }

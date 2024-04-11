@@ -8,12 +8,12 @@ public class OrderList{
    static File file;
    static FileWriter writer;
 
-   public static void addOrder(int addPizzas){
+   public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       String orderName = "";//add scanner here
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
-         System.out.println("Pizza nr: " + (i+1));
+         System.out.println("Pizza nr skal være?: " + (i+1));
          
          boolean sentinel;//sentinel
          do{
