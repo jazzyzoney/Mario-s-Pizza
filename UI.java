@@ -2,57 +2,58 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.GridLayout;
 
 public class UI{
    
-   static JFrame aFrame;
+   static JFrame frame;
    static JFrame mFrame;
    static JFrame sFrame;
    static JFrame dFrame;
    
    public UI(){      
-      Dimension size = new Dimension();
-      size = Toolkit.getDefaultToolkit().getScreenSize(); 
-      int width = (int)size.getWidth(); 
-      int height = (int)size.getHeight();
-
-      alfonsoFrame(width, height);
-      marioFrame(width, height);
-      //testFrame(width, height);
+      frame();
    }
    
-   public static void testFrame(int width, int height){
-      JFrame tFrame = new JFrame();
-      tFrame.setVisible(true);
-      tFrame.setSize(width,height);
-   }
-   
-   public static void alfonsoFrame(int width, int height){
-      aFrame = new JFrame();
-      aFrame.setSize(width/2, height-36);
-      aFrame.setLocation(-10,0);
-      aFrame.setTitle("Håndter Ordrer");//temporary name
-      aFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      aFrame.setVisible(true);
+   public static void frame(){
+      frame = new JFrame();
+      frame.setSize(1920,1080);
+      frame.setLocation(-10,0);
+      frame.setTitle("Håndter Ordrer");//temporary name
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setVisible(true);
       
-      JPanel aPanel = new JPanel();
+      JPanel aPanel = new JPanel();//alfonsos panel
       aPanel.setBackground(new Color(70,70,70));
       
+     JButton addButton = new JButton("Ny ordre");
+     addButton.setBackground(new Color(200,200,255));
+     aPanel.add(addButton);
       
-      JButton addButton = new JButton("Ny ordre");
-      addButton.setBackground(new Color(200,200,255));
-      aPanel.add(addButton);
+     JButton deleteButton = new JButton("slet");
+     deleteButton.addActionListener(e ->{
+        deleteOrderFrame();
+     });
+     aPanel.add(deleteButton);
       
-      JButton deleteButton = new JButton("slet");
-      deleteButton.addActionListener(e ->{
-         deleteOrderFrame();
-      });
-      aPanel.add(deleteButton);
+     JButton completeButton = new JButton ("færdig");
+     aPanel.add(completeButton);
+            
+     JPanel mPanel = new JPanel();//marios panel
+     mPanel.setBackground(Color.RED);
       
-      JButton completeButton = new JButton ("færdig");
-      aPanel.add(completeButton);
+      JButton statisticsButton = new JButton("Statistik");
+     statisticsButton.addActionListener(e ->{
+        statisticsFrame();
+     });
       
-      aFrame.add(aPanel);
+     mPanel.add(statisticsButton);
+      
+     JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
+     splitpane.setDividerLocation(800);
+     frame.add(splitpane);
+
+      
    }
 
    public static void deleteOrderFrame(){
@@ -60,7 +61,7 @@ public class UI{
       dFrame.setSize(400,150);
       dFrame.setVisible(true);
       dFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      dFrame.setLocationRelativeTo(aFrame);
+      dFrame.setLocationRelativeTo(frame);
       
       JPanel dPanel = new JPanel();
       JButton yButton = new JButton ("ja");
@@ -78,23 +79,15 @@ public class UI{
       dFrame.add(dPanel);
    }
    
-   public static void marioFrame(int width, int height){
-      mFrame = new JFrame();
+   public static void marioPanel(int width, int height){
+      /*mFrame = new JFrame();
       mFrame.setSize(width/2, height-36);
       mFrame.setTitle("Ordrer");//temporary name
       mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       mFrame.setVisible(true);
-      mFrame.setLocation(width/2,0);
+      mFrame.setLocation(width/2,0);*/
       
-      JPanel mPanel = new JPanel();
-      JButton statisticsButton = new JButton("Statistik");
-      statisticsButton.addActionListener(e ->{
-         statisticsFrame();
-      });
-      
-      mPanel.add(statisticsButton);
-      mFrame.add(mPanel);
-   }
+         }
    
    public static void statisticsFrame(){
       sFrame = new JFrame();

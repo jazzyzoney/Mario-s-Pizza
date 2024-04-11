@@ -4,10 +4,10 @@ import javax.swing.*;
 public class Main{
    
    public static void main (String [] args){
-      TextUI.textUI();
+      //TextUI.textUI();
       
-      /*SwingUtilities.invokeLater(()->{ 
+      SwingUtilities.invokeLater(()->{ 
          new UI();
-      });*/
+      });
    }
 }

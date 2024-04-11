@@ -8,7 +8,7 @@ public class OrderList{
    static File file;
    static FileWriter writer;
 
-   public static void addOrder(int addPizzas){
+   public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       String orderName = "";//add scanner here
       Orders order = new Orders(orderName);
       
