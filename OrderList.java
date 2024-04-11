@@ -13,7 +13,7 @@ public class OrderList{
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
-         System.out.println("Pizza nr: " + (i+1));
+         System.out.println("Pizza nr skal være?: " + (i+1));
          
          boolean sentinel;//sentinel
          do{
