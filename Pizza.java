@@ -3,10 +3,9 @@ public class Pizza{
    int number; 
    String name=""; 
    
-   public Pizza(String name, int price, int number){
+   public Pizza(String name, int price){
       this.name = name;
       this.price = price;
-      this.number = number;
    }
    
    public void printPizzas(){

@@ -23,7 +23,7 @@ public class Statistics{
       for (Pizza pizza : order) {
          orderTotal += pizza.price;
          
-         //update most popular pizza statistics (simplified)
+         //update most popular pizza statistics
          if (pizza.number == mostPopularPizzaCount || mostPopularPizza == null) {
             mostPopularPizza = pizza.name;
             mostPopularPizzaCount++;

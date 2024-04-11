@@ -3,10 +3,14 @@ import javax.swing.*;
 
 public class Main{
    public static void main (String [] args){
+      
+      Menu.addPizzamenu();
+      Menu.printMenu();
+      
       TextUI.textUI();
       
       SwingUtilities.invokeLater(()->{ 
-         new UI();
+        new UI();
       });
    }
 }
