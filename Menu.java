@@ -5,7 +5,7 @@ public class Menu{
    static ArrayList<Pizza> menu = new ArrayList<>();
 
    public static void addPizzamenu(){
-
+   
       menu.add(new Pizza("Vesuvio", 57));
       menu.add(new Pizza("Amerikaner", 54));
       menu.add(new Pizza("Cacciatore", 57));
@@ -18,7 +18,7 @@ public class Menu{
       menu.add(new Pizza("Capricciosa", 61));
       menu.add(new Pizza("Hawaii", 61));
       menu.add(new Pizza("Le Blissola", 61));
-      menu.add(new Pizza("Le Blissola", 61));
+      menu.add(new Pizza("Blizz", 61));
       menu.add(new Pizza("Venezia", 61));
       menu.add(new Pizza("Mafia", 61));
       menu.add(new Pizza("Le Blissola", 61));
@@ -39,15 +39,42 @@ public class Menu{
       
       int i = 0;
       for(Pizza pizza : menu){
-      pizza.number = i +1;
-      i ++;
+         pizza.number = i +1;
+         i ++;
       }
    }
    
-   public static void printMenu() {
-       System.out.println("Mario's Menu:");
-       for (Pizza pizza : menu) {
-         pizza.printPizzas();
-      }
+   public static void pizzaMenuCard(int menuChoice) {
+      System.out.println("###############################################################################################");
+      System.out.println("Mario's Menu:");
+   
+      System.out.println("page (1, 2, or 3): ");
+   
+      if (!menu.isEmpty()) {
+         int startIndex, endIndex;
+         switch (menuChoice) {
+            case 1:
+               startIndex = 0;
+               endIndex = 10;
+               break;
+            case 2:
+               startIndex = 10;
+               endIndex = 20;
+               break;
+            case 3:
+               startIndex = 20;
+               endIndex = 30;
+               break;
+            default:
+               System.out.println("Invalid.");
+               return;
+         }
+      
+         for (int i = startIndex; i < endIndex; i++) {
+            Pizza pizza = menu.get(i);
+            System.out.println(pizza.number + ". " + pizza.name + " - " + pizza.price + "kr.");
+         }
+      } 
+      System.out.println("###############################################################################################");
    }
 }

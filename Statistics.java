@@ -36,10 +36,16 @@ public class Statistics{
       totalTurnover += orderTotal;
    }
    
+   //Scanner scanner = new Scanner();
+   
+   /*if( a)
+   scanner stop
+   else()*/
+   
    //method to help find how many times a specific pizza appears in all orders
-   private static int countPizzaInOrders(Pizza pizza) {
+   /*private static int countPizzaInOrders(Pizza pizza) {
       int count = 0;
-      for (ArrayList<Pizza> order : Orders.orderList) {
+      for (ArrayList<Order> order : OrderList.orderList) {
          for (Pizza p : order) {
             if (p.name.equals(pizza.name)) {
                count++;
@@ -47,7 +53,9 @@ public class Statistics{
          }
       }
       return count;
-   }
+   }*/
+   
+   //tag data fra pizza info.txt
 
    //method that returns the name of the most popular pizza
    public static String favoritePizza() {
