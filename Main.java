@@ -7,6 +7,7 @@ public class Main{
    Menu.addPizzamenu();
       OrderList.addOrder(2);
       OrderList.printOrders();
+      OrderList.completeOrder(1);
       //TextUI.textUI();
       
       /*SwingUtilities.invokeLater(()->{ 

@@ -53,10 +53,10 @@ public class OrderList{
          
          writer = new FileWriter("Pizza Info", true);
          writer.write("a\n");//marks new order
-
-         /*for (int i = 0; i < orderList.get(orderNo).size(); i++){//writing index and price to file for each pizza
-            writer.write(orderList.get(orderNo).get(i).number + " " + orderList.get(orderNo).get(i).price + "\n");
-         }*/
+         
+         for (Pizza p : orderList.get(orderNo).pizzaList){
+            writer.write(p.number + " " + p.price + "\n");
+         }
          
          writer.close();
 
