@@ -42,13 +42,14 @@ public class Menu{
          pizza.number = i +1;
          i ++;
       }
+      
+      System.out.println("page (1, 2, or 3): ");
+      
    }
    
    public static void pizzaMenuCard(int menuChoice) {
       System.out.println("###############################################################################################");
       System.out.println("Mario's Menu:");
-   
-      System.out.println("page (1, 2, or 3): ");
    
       if (!menu.isEmpty()) {
          int startIndex, endIndex;
