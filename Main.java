@@ -2,11 +2,15 @@ import java.util.Scanner;
 import javax.swing.*;
 
 public class Main{
+   
    public static void main (String [] args){
-      TextUI.textUI();
+   Menu.addPizzamenu();
+      OrderList.addOrder(2);
+      OrderList.printOrders();
+      //TextUI.textUI();
       
-      SwingUtilities.invokeLater(()->{ 
+      /*SwingUtilities.invokeLater(()->{ 
          new UI();
-      });
+      });*/
    }
 }
