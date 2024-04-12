@@ -10,7 +10,7 @@ public class TextUI{
        do {
       System.out.print("du har nu fire valgmuligheder");
             System.out.println("");
-            System.out.println("du kan nu skrive add for at addere en ordre");
+            System.out.println("du kan nu skrive [add] for at addere en ordre");
              System.out.println("eller skrive done for at afsluttet orderen");
              System.out.println("Delete vil fjerne orderen fra systemet");
              System.out.println("view vil lade dig se alle ordrene");

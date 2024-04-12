@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Statistics{
 
+F.Objectload("PizzaInfo")
+
    //variable to store the total turnover of the store
    private static int totalTurnover = 0;
 

@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class OrderList{
+public class OrderList implements Serializable{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
    static Scanner scanner = new Scanner(System.in);
    static File file;
@@ -53,12 +53,16 @@ public class OrderList{
             file.createNewFile();
          }
          
+         F.saveObjekt(orderList.get(orderNo), "pizza info");
+         
+         
+         
          //writing to file:
-         writer = new FileWriter("Pizza Info", true);
-         writer.write("a\n");//marks new order
-         for (Pizza p : orderList.get(orderNo).pizzaList){
-            writer.write(p.number + " " + p.price + "\n");
-         }
+        // writer = new FileWriter("Pizza Info", true);
+        // writer.write("a\n");//marks new order
+        // for (Pizza p : orderList.get(orderNo).pizzaList){
+        //    writer.write(p.number + " " + p.price + "\n");
+         
          writer.close();
       
       }catch(Exception e){
