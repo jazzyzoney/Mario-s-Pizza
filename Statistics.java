@@ -36,12 +36,6 @@ public class Statistics{
       totalTurnover += orderTotal;
    }
    
-   //Scanner scanner = new Scanner();
-   
-   /*if( a)
-   scanner stop
-   else()*/
-   
    //method to help find how many times a specific pizza appears in all orders
    /*private static int countPizzaInOrders(Pizza pizza) {
       int count = 0;
@@ -56,6 +50,7 @@ public class Statistics{
    }*/
    
    //tag data fra pizza info.txt
+   
 
    //method that returns the name of the most popular pizza
    public static String favoritePizza() {

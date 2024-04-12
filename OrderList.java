@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class OrderList{
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
-         System.out.println("Pizza nr skal være?: " + (i+1));
+         System.out.println("Pizza nr skal vaere?: " + (i+1));
          
          boolean sentinel;//sentinel
          do{
@@ -35,12 +35,14 @@ public class OrderList{
    
    
    public static void printOrders(){
+      Date currentDate = new Date();
       for(Orders order : orderList){
+         //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
-            System.out.println(pizza.number + ", " + pizza.price + " kr");
+            System.out.println(pizza.number + ", " + pizza.price + " kr" + order.date.format(currentDate));
          }
-      }      
+      }
    }
    
    public static void completeOrder(int orderNo){
@@ -58,7 +60,7 @@ public class OrderList{
             writer.write(p.number + " " + p.price + "\n");
          }
          writer.close();
-
+      
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }

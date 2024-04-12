@@ -6,7 +6,7 @@ public class TextUI{
       String Letters = ""; 
       System.out.print("Mamma mia velkommen til Mario's pizza order system");
       Menu.addPizzamenu();
-      Menu.printMenu();
+      Menu.addPizzamenu();
        do {
       System.out.print("du har nu fire valgmuligheder");
             System.out.println("");

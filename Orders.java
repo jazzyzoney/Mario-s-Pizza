@@ -8,7 +8,7 @@ public class Orders{
    ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
    
    public Orders(String name){
-      this.date = date;
+      this.date = new SimpleDateFormat("Y/MM/dd HH:mm");
       this.name = name;
    }
 }
