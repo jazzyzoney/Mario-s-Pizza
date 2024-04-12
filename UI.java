@@ -24,26 +24,43 @@ public class UI{
       int width = (int)size.getWidth();
       int height = (int) size.getHeight();
       
-      //frame.setSize(width, height);
       frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
       frame.setTitle("Ordresystem");//temporary name
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
       frame.setLayout(new GridLayout(1,Menu.menu.size()));
-      
-            
-      
+
       //alfonsos panel
       aPanel = new JPanel();
-      aPanel.setBackground(new Color(255,220,230));
+      aPanel.setBackground(new Color(255,200,200));
+      aPanel.setLayout(new BorderLayout());
+      
+      JPanel aHeaderPanel = new JPanel ();
+      
+      JLabel aLabel = new JLabel();
+      aLabel.setText("Ny ordre");
+      aHeaderPanel.add(aLabel);
+      
+      aPanel.add(aHeaderPanel, BorderLayout.NORTH);
       
       JButton addButton = new JButton("Godkend ordre");
       addButton.setBackground(new Color(200,200,255));
-      aPanel.add(addButton);
+      aPanel.add(addButton, BorderLayout.SOUTH);
       
-      JLabel aLabel = new JLabel();
-      aLabel.setText("Ny ordrer");
-      aPanel.add(aLabel);
+      JPanel textPanel = new JPanel();
+      textPanel.setLayout(new GridLayout(20, 1));
+      
+      JLabel instrLabel1 = new JLabel(" 1. Tryk på menukortet, for at tilføje pizzaer.");
+      JLabel instrLabel2 = new JLabel(" 2. Tryk på [Godkend ordre]-knappen for at godkende ordren");
+      JLabel instrLabel3 = new JLabel(" 3. Tryk på {Færdig] for at fjerne ordren fra ordrelisten."); 
+      JLabel instrLabel4 = new JLabel(" 4. Tryk på [Slet] for at anullere ordren");
+      
+      textPanel.add(instrLabel1);
+      textPanel.add(instrLabel2);
+      textPanel.add(instrLabel3);
+      textPanel.add(instrLabel4);
+      
+      aPanel.add(textPanel, BorderLayout.CENTER);
       
       //menu panel:  
       JPanel menuPanel = new JPanel();
@@ -72,16 +89,27 @@ public class UI{
       
       //Marios panel            
       mPanel = new JPanel();
-      mPanel.setBackground(new Color(255, 230, 220));
+      mPanel.setBackground(new Color(178,228,201));//find en bedre grøn.
       mPanel.setLayout(new GridLayout(10,1));
       
-      //Statistics window button:
+      //mario panel header:
+      JPanel mHeaderPanel = new JPanel();
+      mHeaderPanel.setLayout(new BorderLayout());
+      
       JButton statisticsButton = new JButton("Statistik");
       statisticsButton.addActionListener(
          e ->{
             statisticsFrame();
          });
-      mPanel.add(statisticsButton);
+      mHeaderPanel.add(statisticsButton, BorderLayout.EAST);
+      
+      JPanel gapPanel = new JPanel();
+      mHeaderPanel.add(gapPanel, BorderLayout.SOUTH);
+      
+      JLabel orderLabel = new JLabel("ORDRER: ");
+      mHeaderPanel.add(orderLabel);
+      
+      mPanel.add(mHeaderPanel);
       
       //add Order panels:
       for (int i = 0; i < 1; i++){
@@ -111,14 +139,6 @@ public class UI{
          orderButtonPanel.add(completeButton);
          panel.add(orderButtonPanel, BorderLayout.EAST);
       }
-      
-
-     
-
-      //JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
-      
-      //splitpane.setDividerLocation(800);
-      //frame.add(splitpane); 
       
       frame.add(aPanel);
       frame.add(menuPanel);
