@@ -5,7 +5,6 @@ public class Menu{
    static ArrayList<Pizza> menu = new ArrayList<>();
 
    public static void addPizzamenu(){
-   
       menu.add(new Pizza("Vesuvio", 57));
       menu.add(new Pizza("Amerikaner", 54));
       menu.add(new Pizza("Cacciatore", 57));
@@ -42,17 +41,15 @@ public class Menu{
          pizza.number = i +1;
          i ++;
       }
-      
-      System.out.println("Page (1, 2, or 3): ");
-      
    }
    
    public static void pizzaMenuCard(int menuChoice) {
-      System.out.println("###############################################################################################");
-      System.out.println("Mario's Menu:");
-   
+      System.out.println("Page (1, 2, or 3): ");
+         
+         
       if (!menu.isEmpty()) {
-         int startIndex, endIndex;
+         int startIndex;
+         int endIndex;
          switch (menuChoice) {
             case 1:
                startIndex = 0;
@@ -70,12 +67,13 @@ public class Menu{
                System.out.println("Invalid.");
                return;
          }
-      
+         System.out.println("###############################################################################################");
+         System.out.println("Mario's Menu:");
          for (int i = startIndex; i < endIndex; i++) {
             Pizza pizza = menu.get(i);
             System.out.println(pizza.number + ". " + pizza.name + " - " + pizza.price + "kr.");
          }
-      } 
+      }
       System.out.println("###############################################################################################");
    }
 }
