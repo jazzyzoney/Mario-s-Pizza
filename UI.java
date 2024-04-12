@@ -45,8 +45,15 @@ public class UI{
       menuPanel.setLayout(new GridLayout(Menu.menu.size(), 1));
       for (int i = 0; i < Menu.menu.size(); i++){
          JButton button = new JButton((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
+         
+         if (i % 2 == 1){
+            button.setBackground(Color.WHITE);
+         }else{
+            button.setBackground(new Color(250,245,240));
+         }
+         
          button.addActionListener(e ->{
-            
+            //add addPizza-action.
          });
          menuPanel.add(button);
       }      
@@ -56,17 +63,35 @@ public class UI{
       //Marios panel            
       mPanel = new JPanel();
       mPanel.setBackground(new Color(255, 230, 220));
-     
-      JButton deleteButton = new JButton("slet");
-      deleteButton.addActionListener(
-         e ->{
+      mPanel.setLayout(new GridLayout(10,1));
+      
+      for (int i = 0; i < 1; i++){
+         Orders order = new Orders("pizzaa");
+         JPanel panel = new JPanel();
+         panel.setBackground(Color.PINK);
+         panel.setLayout(new BorderLayout());
+         
+         order.pizzaList.add(Menu.menu.get(1));
+         JLabel label = new JLabel();
+         label.setText(order.name);
+         panel.add(label);
+         mPanel.add(panel);
+         
+         JPanel panel2 = new JPanel ();
+         panel2.setLayout(new GridLayout(2, 1));
+         
+         JButton deleteButton = new JButton("slet");
+         deleteButton.addActionListener(e ->{
             deleteOrderFrame();
          });
-      mPanel.add(deleteButton);
+         panel2.add(deleteButton);
      
-      //Complete order button:
-      JButton completeButton = new JButton ("færdig");
-      mPanel.add(completeButton);
+         JButton completeButton = new JButton ("færdig");
+         panel2.add(completeButton);
+         panel.add(panel2, BorderLayout.EAST);
+      }
+      
+
      
       //Statistics window button:
       JButton statisticsButton = new JButton("Statistik");
