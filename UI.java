@@ -20,8 +20,12 @@ public class UI{
    
    public static void frame(){
       frame = new JFrame();
-      frame.setSize(1920,1080);
-      frame.setLocation(-10,0);
+      Dimension size = new Dimension();
+      int width = (int)size.getWidth();
+      int height = (int) size.getHeight();
+      
+      //frame.setSize(width, height);
+      frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
       frame.setTitle("Ordresystem");//temporary name
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
@@ -33,9 +37,13 @@ public class UI{
       aPanel = new JPanel();
       aPanel.setBackground(new Color(255,220,230));
       
-      JButton addButton = new JButton("Ny ordre");
+      JButton addButton = new JButton("Godkend ordre");
       addButton.setBackground(new Color(200,200,255));
       aPanel.add(addButton);
+      
+      JLabel aLabel = new JLabel();
+      aLabel.setText("Ny ordrer");
+      aPanel.add(aLabel);
       
       //menu panel:  
       JPanel menuPanel = new JPanel();
@@ -50,7 +58,9 @@ public class UI{
             button.setBackground(Color.WHITE);
          }else{
             button.setBackground(new Color(250,245,240));
-         }
+         }//mvc : model view controller.
+         //implements serializable
+         //scroller: lave en container.
          
          button.addActionListener(e ->{
             //add addPizza-action.
@@ -65,45 +75,48 @@ public class UI{
       mPanel.setBackground(new Color(255, 230, 220));
       mPanel.setLayout(new GridLayout(10,1));
       
-      for (int i = 0; i < 1; i++){
-         Orders order = new Orders("pizzaa");
-         JPanel panel = new JPanel();
-         panel.setBackground(Color.PINK);
-         panel.setLayout(new BorderLayout());
-         
-         order.pizzaList.add(Menu.menu.get(1));
-         JLabel label = new JLabel();
-         label.setText(order.name);
-         panel.add(label);
-         mPanel.add(panel);
-         
-         JPanel panel2 = new JPanel ();
-         panel2.setLayout(new GridLayout(2, 1));
-         
-         JButton deleteButton = new JButton("slet");
-         deleteButton.addActionListener(e ->{
-            deleteOrderFrame();
-         });
-         panel2.add(deleteButton);
-     
-         JButton completeButton = new JButton ("færdig");
-         panel2.add(completeButton);
-         panel.add(panel2, BorderLayout.EAST);
-      }
-      
-
-     
       //Statistics window button:
       JButton statisticsButton = new JButton("Statistik");
       statisticsButton.addActionListener(
          e ->{
             statisticsFrame();
          });
-      
       mPanel.add(statisticsButton);
+      
+      //add Order panels:
+      for (int i = 0; i < 1; i++){
+         Orders order = new Orders("pizzaa");
+         order.pizzaList.add(Menu.menu.get(1));
+         
+         JPanel panel = new JPanel();
+         panel.setBackground(Color.PINK);
+         panel.setLayout(new BorderLayout());
+         
+         JLabel label = new JLabel();
+         label.setText(order.name);
+         
+         panel.add(label);
+         mPanel.add(panel);
+         
+         JPanel orderButtonPanel = new JPanel ();
+         orderButtonPanel.setLayout(new GridLayout(2, 1));
+         
+         JButton deleteButton = new JButton("slet");
+         deleteButton.addActionListener(e ->{
+            deleteOrderFrame();
+         });
+         orderButtonPanel.add(deleteButton);
+     
+         JButton completeButton = new JButton ("færdig");
+         orderButtonPanel.add(completeButton);
+         panel.add(orderButtonPanel, BorderLayout.EAST);
+      }
+      
+
+     
+
       //JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
-      //Dimension size = new Dimension();
-      //int width = (int)size.getWidth();
+      
       //splitpane.setDividerLocation(800);
       //frame.add(splitpane); 
       
