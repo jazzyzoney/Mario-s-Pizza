@@ -43,7 +43,7 @@ public class Menu{
          i ++;
       }
       
-      System.out.println("page (1, 2, or 3): ");
+      System.out.println("Page (1, 2, or 3): ");
       
    }
    
