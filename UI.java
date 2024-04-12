@@ -9,11 +9,13 @@ import java.awt.GridLayout;
 public class UI{
    
    static JFrame frame;
-   static JFrame mFrame;
-   static JFrame sFrame;
-   static JFrame dFrame;
    static JPanel aPanel;
    static JPanel mPanel;
+   
+   static JFrame sFrame;
+   static JFrame dFrame;
+
+   
    public UI(){      
       frame();
    }
@@ -32,7 +34,6 @@ public class UI{
 
       //alfonsos panel
       aPanel = new JPanel();
-      aPanel.setBackground(new Color(255,200,200));
       aPanel.setLayout(new BorderLayout());
       
       JPanel aHeaderPanel = new JPanel ();
@@ -48,12 +49,13 @@ public class UI{
       aPanel.add(addButton, BorderLayout.SOUTH);
       
       JPanel textPanel = new JPanel();
+      textPanel.setBackground(new Color(189,201,165));
       textPanel.setLayout(new GridLayout(20, 1));
       
       JLabel instrLabel1 = new JLabel(" 1. Tryk på menukortet, for at tilføje pizzaer.");
       JLabel instrLabel2 = new JLabel(" 2. Tryk på [Godkend ordre]-knappen for at godkende ordren");
-      JLabel instrLabel3 = new JLabel(" 3. Tryk på {Færdig] for at fjerne ordren fra ordrelisten."); 
-      JLabel instrLabel4 = new JLabel(" 4. Tryk på [Slet] for at anullere ordren");
+      JLabel instrLabel3 = new JLabel(" 3. Tryk på [Færdiggør ordre] for at fjerne ordren fra ordrelisten."); 
+      JLabel instrLabel4 = new JLabel(" 4. Tryk på [Annuller] for at anullere ordren");
       
       textPanel.add(instrLabel1);
       textPanel.add(instrLabel2);
@@ -64,7 +66,7 @@ public class UI{
       
       //menu panel:  
       JPanel menuPanel = new JPanel();
-      menuPanel.setBackground(Color.PINK);
+      menuPanel.setBackground(Color.WHITE);
       
       Menu.addPizzamenu();
       menuPanel.setLayout(new GridLayout(Menu.menu.size(), 1));
@@ -85,11 +87,9 @@ public class UI{
          menuPanel.add(button);
       }      
       
-
-      
       //Marios panel            
       mPanel = new JPanel();
-      mPanel.setBackground(new Color(178,228,201));//find en bedre grøn.
+      mPanel.setBackground(new Color(237,165,145));//find en bedre grøn.
       mPanel.setLayout(new GridLayout(10,1));
       
       //mario panel header:
@@ -104,6 +104,7 @@ public class UI{
       mHeaderPanel.add(statisticsButton, BorderLayout.EAST);
       
       JPanel gapPanel = new JPanel();
+      gapPanel.setBackground(Color.BLACK);
       mHeaderPanel.add(gapPanel, BorderLayout.SOUTH);
       
       JLabel orderLabel = new JLabel("ORDRER: ");
@@ -111,11 +112,11 @@ public class UI{
       
       mPanel.add(mHeaderPanel);
       
-      //add Order panels:
-      for (int i = 0; i < 1; i++){
-         Orders order = new Orders("pizzaa");
-         order.pizzaList.add(Menu.menu.get(1));
+      Orders order = new Orders("pizzaa");
+      order.pizzaList.add(Menu.menu.get(1));
          
+      //add Order panels:
+      for (int i = 0; i < OrderList.orderList.size(); i++){         
          JPanel panel = new JPanel();
          panel.setBackground(Color.PINK);
          panel.setLayout(new BorderLayout());
@@ -129,13 +130,13 @@ public class UI{
          JPanel orderButtonPanel = new JPanel ();
          orderButtonPanel.setLayout(new GridLayout(2, 1));
          
-         JButton deleteButton = new JButton("slet");
+         JButton deleteButton = new JButton("Anuller");
          deleteButton.addActionListener(e ->{
             deleteOrderFrame();
          });
          orderButtonPanel.add(deleteButton);
      
-         JButton completeButton = new JButton ("færdig");
+         JButton completeButton = new JButton ("Færdiggør ordre");
          orderButtonPanel.add(completeButton);
          panel.add(orderButtonPanel, BorderLayout.EAST);
       }
@@ -179,12 +180,4 @@ public class UI{
       sFrame.setLocationRelativeTo(null);
       sFrame.setTitle("Statistik");
    }
-   
-   /*@Override   
-   public void paintComponent(Graphics g){
-      super.paintComponent(g);
-      //Rectangle rect = new Rectangle(700, 500);
-      g.setColor(Color.WHITE);
-      g.fillRect(100, 580, 100, 100);
-   }*/
 }
