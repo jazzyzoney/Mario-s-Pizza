@@ -2,16 +2,18 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.GridLayout;
-import java.awt.*;
 
-public class UI {
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+public class UI{
    
    static JFrame frame;
    static JFrame mFrame;
    static JFrame sFrame;
    static JFrame dFrame;
-   
+   static JPanel aPanel;
+   static JPanel mPanel;
    public UI(){      
       frame();
    }
@@ -23,24 +25,38 @@ public class UI {
       frame.setTitle("Ordresystem");//temporary name
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
+      frame.setLayout(new GridLayout(1,Menu.menu.size()));
       
-      JPanel aPanel = new JPanel();//alfonsos panel
-      aPanel.setBackground(new Color(70,70,70));
+            
+      
+      //alfonsos panel
+      aPanel = new JPanel();
+      aPanel.setBackground(new Color(255,220,230));
       
       JButton addButton = new JButton("Ny ordre");
       addButton.setBackground(new Color(200,200,255));
       aPanel.add(addButton);
       
-      JTextArea text = new JTextArea("Ordrer:");
-      Font font = new Font("Serif", Font.BOLD, 15);
-      text.setFont(font);
-      aPanel.add(text);
+      //menu panel:  
+      JPanel menuPanel = new JPanel();
+      menuPanel.setBackground(Color.PINK);
+      
+      Menu.addPizzamenu();
+      menuPanel.setLayout(new GridLayout(Menu.menu.size(), 1));
+      for (int i = 0; i < Menu.menu.size(); i++){
+         JButton button = new JButton((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
+         button.addActionListener(e ->{
+            
+         });
+         menuPanel.add(button);
+      }      
+      
+
       
       //Marios panel            
-      JPanel mPanel = new JPanel();
+      mPanel = new JPanel();
       mPanel.setBackground(new Color(255, 230, 220));
      
-      //Delete order button
       JButton deleteButton = new JButton("slet");
       deleteButton.addActionListener(
          e ->{
@@ -60,12 +76,15 @@ public class UI {
          });
       
       mPanel.add(statisticsButton);
-      
-      JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
+      //JSplitPane splitpane = new JSplitPane(SwingConstants.VERTICAL, aPanel, mPanel );
       //Dimension size = new Dimension();
       //int width = (int)size.getWidth();
-      splitpane.setDividerLocation(800);
-      frame.add(splitpane); 
+      //splitpane.setDividerLocation(800);
+      //frame.add(splitpane); 
+      
+      frame.add(aPanel);
+      frame.add(menuPanel);
+      frame.add(mPanel);
    }
 
    public static void deleteOrderFrame(){
@@ -103,11 +122,11 @@ public class UI {
       sFrame.setTitle("Statistik");
    }
    
-/* @Override   
+   /*@Override   
    public void paintComponent(Graphics g){
       super.paintComponent(g);
       //Rectangle rect = new Rectangle(700, 500);
-      g.setColor(Color.BLACK);
+      g.setColor(Color.WHITE);
       g.fillRect(100, 580, 100, 100);
    }*/
 }
