@@ -46,7 +46,7 @@ public class UI{
       for (int i = 0; i < Menu.menu.size(); i++){
          JButton button = new JButton((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
          button.addActionListener(e ->{
-            
+            //add addPizza-action.
          });
          menuPanel.add(button);
       }      
