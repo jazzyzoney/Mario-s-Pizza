@@ -40,7 +40,7 @@ public class OrderList{
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
-            System.out.println(pizza.number + ", " + pizza.price + " kr" + order.date.format(currentDate));
+            System.out.println(pizza.number + ", " + pizza.price + " kr" + " " + order.date.format(currentDate));
          }
       }
    }
@@ -70,7 +70,7 @@ public class OrderList{
    public static void deleteOrder(int orderNo){
       orderNo--;
       orderList.remove(orderNo);
-      System.out.println("Ordre nr. " + (orderNo + 1) + " slettet.");
+      //System.out.println("Ordre nr. " + (orderNo + 1) + " slettet.");
    }
 
 }

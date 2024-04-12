@@ -14,12 +14,10 @@ public class Main{
       //TextUI.textUI();q
       
       
-      SwingUtilities.invokeLater(()->{ 
-         new UI();
-      });
-      //TextUI.textUI ();
-      
-      //OrderList.addOrder(5);
+      //SwingUtilities.invokeLater(()->{ 
+        // new UI();  
+      //});
+      TextUI.textUI ();
    }
    
 }
