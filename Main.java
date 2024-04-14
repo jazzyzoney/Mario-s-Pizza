@@ -4,14 +4,16 @@ import javax.swing.*;
 public class Main{
    
    public static void main (String [] args){
-      //Menu.addPizzamenu(); 
+      Menu.addPizzamenu(); 
       //Scanner scanner = new Scanner(System.in);
       //int menuChoice = scanner.nextInt();
       //Menu.pizzaMenuCard(menuChoice);
    
-     // OrderList.addOrder(2);
+      OrderList.addOrder(2);
+      OrderList.addOrder(7);
      // OrderList.printOrders();
       //TextUI.textUI();q
+      
       
       
       SwingUtilities.invokeLater(()->{ 
