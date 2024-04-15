@@ -11,12 +11,10 @@ public class Main{
    
       //OrderList.addOrder(2);
      // OrderList.printOrders();
-      //TextUI.textUI();q
-      
-      
-     SwingUtilities.invokeLater(()->{ 
-         new UI();  
-      });
-      //TextUI.textUI ();
+     
+     //SwingUtilities.invokeLater(()->{ 
+       //  new UI();  
+      //});
+      TextUI.textUI ();
    }
 }
