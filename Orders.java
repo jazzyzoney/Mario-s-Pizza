@@ -3,7 +3,6 @@ import java.text.SimpleDateFormat;
 import java.io.*;
 
 public class Orders implements Serializable{
-   //datatype time her
    SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
    int name;
    ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
