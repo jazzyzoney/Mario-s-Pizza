@@ -9,8 +9,8 @@ public class Main{
       //int menuChoice = scanner.nextInt();
       //Menu.pizzaMenuCard(menuChoice);
    
-      OrderList.addOrder(2);
-      OrderList.addOrder(7);
+      OrderList.addOrder(8);
+      //OrderList.addOrder(7);
      // OrderList.printOrders();
       //TextUI.textUI();q
       
