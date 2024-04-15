@@ -67,14 +67,15 @@ public class UI{
       addButton.setBackground(Color.WHITE);
       
       addButton.addActionListener(e ->{
-         Orders order = new Orders("");
+         Orders order = new Orders(1);
          for (int i = 0; i< pizzaList.size(); i ++){
             order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
          }
          OrderList.orderList.add(order);         
-         //OrderList.printOrders();
-         mPanel.repaint();
+         //SwingUtilities.updateComponentTreeUI(frame);
+         
       });
+      OrderList.printOrders();
       
       aPanel.add(addButton, BorderLayout.SOUTH);
       
@@ -113,8 +114,6 @@ public class UI{
          final int pizzaNo = i;
          button.addActionListener(
             e ->{
-                //pizzaCounter ++;
-                
                 pizzaList.add(pizzaNo);
             });
          menuPanel.add(button);
@@ -157,7 +156,7 @@ public class UI{
          orderPanel.setLayout(new BorderLayout());
          
          JLabel orderNameLabel = new JLabel();//order name/number. Should also contain time.
-         orderNameLabel.setText(OrderList.orderList.get(i).name);
+         orderNameLabel.setText("" + OrderList.orderList.get(i).name);
          orderPanel.add(orderNameLabel, BorderLayout.SOUTH);
          
          JPanel pizzaPanel = new JPanel();//Contains a list of pizzas.

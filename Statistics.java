@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.IOException;
+import java.io.EOFException;
 
 public class Statistics{
 static Object data;
