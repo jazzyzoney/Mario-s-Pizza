@@ -9,11 +9,11 @@ public class OrderList implements Serializable{
    static FileWriter writer;
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
-      String orderName = "";//add scanner here
+      int orderName = 0;//add scanner here
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
-         System.out.println("Pizza nr skal vaere?: " + (i+1));
+         System.out.println("Pizza nr: " + (i+1));
          
          boolean sentinel;//sentinel
          do{
@@ -39,7 +39,7 @@ public class OrderList implements Serializable{
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
-            System.out.println(pizza.number + ", " + pizza.price + " kr" + " " + order.date.format(currentDate));
+            System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.date.format(currentDate));
          }
       }
    }
@@ -52,10 +52,8 @@ public class OrderList implements Serializable{
             file.createNewFile();
          }
          
-         F.saveObjekt(orderList.get(orderNo), "pizza info");
-         
-         
-         
+         F.saveObject(orderList.get(orderNo), "pizza info");
+      
          //writing to file:
         // writer = new FileWriter("Pizza Info", true);
         // writer.write("a\n");//marks new order
@@ -75,5 +73,4 @@ public class OrderList implements Serializable{
       orderList.remove(orderNo);
       //System.out.println("Ordre nr. " + (orderNo + 1) + " slettet.");
    }
-
 }
