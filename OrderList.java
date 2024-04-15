@@ -6,7 +6,7 @@ public class OrderList implements Serializable{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
    static Scanner scanner = new Scanner(System.in);
    static File file;
-   static FileWriter writer;
+   //static FileWriter writer;
    static int orderCounter=0; 
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
@@ -63,7 +63,7 @@ public class OrderList implements Serializable{
         // for (Pizza p : orderList.get(orderNo).pizzaList){
         //    writer.write(p.number + " " + p.price + "\n");
          
-         writer.close();
+        // writer.close();
       
       }catch(Exception e){
          System.out.println("fejl: " + e);
