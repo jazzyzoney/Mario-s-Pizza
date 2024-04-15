@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class TextUI{
    static Scanner scanner = new Scanner (System.in);
    public static void textUI (){
+   
+   Menu.addPizzamenu();
+   
       String Letters = ""; 
       System.out.print("Mamma mia velkommen til Mario's pizza order system!\n");
       do {
