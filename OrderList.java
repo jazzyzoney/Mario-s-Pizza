@@ -7,6 +7,7 @@ public class OrderList implements Serializable{
    static Scanner scanner = new Scanner(System.in);
    static File file;
    static FileWriter writer;
+   static int orderCounter=0; 
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       int orderName = 0;//add scanner here
@@ -38,6 +39,8 @@ public class OrderList implements Serializable{
       Date currentDate = new Date();
       for(Orders order : orderList){
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
+         System.out.print(orderCounter+1 + ": "); 
+         orderCounter++;
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
             System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.date.format(currentDate));
