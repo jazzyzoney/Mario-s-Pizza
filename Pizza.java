@@ -1,4 +1,6 @@
-public class Pizza{
+import java.io.*;
+
+public class Pizza implements Serializable{
    int price =0; 
    int number; 
    String name=""; 

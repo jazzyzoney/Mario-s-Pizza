@@ -1,9 +1,20 @@
 import java.util.*;
+import java.io.IOException;
 
 public class Statistics{
+static Object data;
 
-static{F.Objectload("PizzaInfo");
-}
+static public void loadsavefile(){
+    try {
+      data = F.loadObject("pizza info");
+      if (data instanceof Orders){
+         Orders info = (Orders) data;
+         System.out.println(info.pizzaList.get(0).name);
+      }
+    } catch (IOException | ClassNotFoundException e) {
+      System.out.println("Error loading data from PizzaInfo.ser: " + e.getMessage());
+    }
+  }
 
    //variable to store the total turnover of the store
    private static int totalTurnover = 0;
@@ -51,9 +62,6 @@ static{F.Objectload("PizzaInfo");
       }
       return count;
    }*/
-   
-   //tag data fra pizza info.txt
-   
 
    //method that returns the name of the most popular pizza
    public static String favoritePizza() {

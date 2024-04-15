@@ -60,6 +60,7 @@ public class TextUI{
                break;
                
             case "statistik":
+               Statistics.loadsavefile();
                Statistics.turnover();
                Statistics.favoritePizza();
                break;
