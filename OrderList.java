@@ -19,8 +19,8 @@ public class OrderList implements Serializable{
          boolean sentinel;//sentinel
          do{
             try{
-               int pizzaNo = scanner.nextInt() - 1;
-               order.pizzaList.add(Menu.menu.get(pizzaNo));
+               int menuNo = scanner.nextInt() - 1;
+                order.pizzaList.add(Menu.menu.get(menuNo));
                sentinel = true;
             }catch(Exception e){
                System.out.println("fejl: " + e);
@@ -33,7 +33,6 @@ public class OrderList implements Serializable{
       
       orderList.add(order);//adding order arraylist to orderlist arraylist
    }//end of add pizzas method
-   
    
    public static void printOrders(){
       Date currentDate = new Date();

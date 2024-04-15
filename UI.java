@@ -7,15 +7,23 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 
+import java.util.ArrayList;
+
 public class UI{
    
    static JFrame frame;
+   
    static JPanel aPanel;
+   static JPanel menuPanel;
    static JPanel mPanel;
    
    static JFrame sFrame;
    static JFrame dFrame;
+   
+   static boolean orderComplete;
+   static Orders order;
 
+   static ArrayList <Integer> pizzaList = new ArrayList <Integer>();
    
    public UI(){      
       frame();
@@ -32,8 +40,18 @@ public class UI{
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
       frame.setLayout(new GridLayout(1,Menu.menu.size()));
-
-      //alfonsos orderPanel
+   
+      
+      aPanel();
+      menuPanel();
+      mPanel(); 
+            
+      frame.add(aPanel);
+      frame.add(menuPanel);
+      frame.add(mPanel);
+   }
+   
+   public static void aPanel(){
       aPanel = new JPanel();
       aPanel.setLayout(new BorderLayout());
       
@@ -47,6 +65,17 @@ public class UI{
       
       JButton addButton = new JButton("Godkend ordre");
       addButton.setBackground(Color.WHITE);
+      
+      addButton.addActionListener(e ->{
+         Orders order = new Orders("");
+         for (int i = 0; i< pizzaList.size(); i ++){
+            order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
+         }
+         OrderList.orderList.add(order);         
+         //OrderList.printOrders();
+         mPanel.repaint();
+      });
+      
       aPanel.add(addButton, BorderLayout.SOUTH);
       
       JPanel textPanel = new JPanel();
@@ -64,9 +93,10 @@ public class UI{
       textPanel.add(instrLabel4);
       
       aPanel.add(textPanel, BorderLayout.CENTER);
-      
-      //menu orderPanel:  
-      JPanel menuPanel = new JPanel();
+   }
+   
+   public static void menuPanel(){
+      menuPanel = new JPanel();
       menuPanel.setBackground(Color.WHITE);
       
       //Menu.addPizzamenu();
@@ -78,16 +108,20 @@ public class UI{
             button.setBackground(Color.WHITE);
          }else{
             button.setBackground(new Color(250,245,240));
-         }//mvc : model view controller.
-         //implements serializable
-         //scroller: lave en container.
+         }
          
-         button.addActionListener(e ->{
-            //add addPizza-action.
-         });
+         final int pizzaNo = i;
+         button.addActionListener(
+            e ->{
+                //pizzaCounter ++;
+                
+                pizzaList.add(pizzaNo);
+            });
          menuPanel.add(button);
-      }      
-      
+      }    
+   }
+   
+   public static void mPanel(){
       //Marios orderPanel            
       mPanel = new JPanel();
       mPanel.setBackground(new Color(237,165,145));//find en bedre grøn.
@@ -142,13 +176,12 @@ public class UI{
          
          JPanel orderButtonNorthPanel = new JPanel();
          orderButtonNorthPanel.setLayout(new GridLayout(2,1));
-         
-         
-         
+      
          JButton deleteButton = new JButton("Anuller");
-         deleteButton.addActionListener(e ->{
-            deleteOrderFrame();
-         });
+         deleteButton.addActionListener(
+            e ->{
+               deleteOrderFrame();
+            });
          orderButtonNorthPanel.add(deleteButton);
          
          JButton completeButton = new JButton ("Færdiggør ordre");
@@ -159,10 +192,7 @@ public class UI{
          displayOrdersPanel.add(orderPanel);
       }
       mPanel.add(displayOrdersPanel);
-      
-      frame.add(aPanel);
-      frame.add(menuPanel);
-      frame.add(mPanel);
+   
    }
 
    public static void deleteOrderFrame(){
