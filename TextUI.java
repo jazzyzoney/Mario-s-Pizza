@@ -61,8 +61,8 @@ public class TextUI{
                
             case "statistik":
                Statistics.loadsavefile();
-               Statistics.turnover();
-               Statistics.favoritePizza();
+              // Statistics.turnover();
+               //Statistics.favoritePizza();
                break;
          
             case "q":

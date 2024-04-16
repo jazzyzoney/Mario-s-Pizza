@@ -14,9 +14,10 @@ public class Main{
       //TextUI.textUI();q
       
       
-     SwingUtilities.invokeLater(()->{ 
-        new UI();  
-      });
-     //TextUI.textUI ();
+   //  SwingUtilities.invokeLater(()->{ 
+       // new UI();  
+    //  });
+     TextUI.textUI ();
+     //Statistics.loadsavefile();
    }
 }

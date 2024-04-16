@@ -6,7 +6,7 @@ public class OrderList implements Serializable{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
    static Scanner scanner = new Scanner(System.in);
    static File file;
-   //static FileWriter writer;
+   static FileWriter writer;
    static int orderCounter=0; 
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
@@ -55,22 +55,21 @@ public class OrderList implements Serializable{
             file.createNewFile();
          }
          
-         ArrayList<Orders> completedOrder = new ArrayList <Orders>();
-         completedOrder.add(orderList.get(orderNo)); 
-         F.saveStringArray(completedOrder, "pizza info");
-      
-         //writing to file:
-        // writer = new FileWriter("Pizza Info", true);
-        // writer.write("a\n");//marks new order
-        // for (Pizza p : orderList.get(orderNo).pizzaList){
-        //    writer.write(p.number + " " + p.price + "\n");
+        // ArrayList<Orders> completedOrder = new ArrayList <Orders>();
+        // completedOrder.add(orderList.get(orderNo)); 
+        // F.saveStringArray(completedOrder, "pizza info");
          
-        // writer.close();
-      
+        // writing to file:
+        writer = new FileWriter("Pizza Info", true);
+        writer.write("a\n");//marks new order
+        for (Pizza p : orderList.get(orderNo).pizzaList){
+            writer.write(p.number + " " + p.price + "\n");
+         
+         writer.close();
+      }
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }
-      orderList.remove(orderNo);
    }
    
    public static void deleteOrder(int orderNo){

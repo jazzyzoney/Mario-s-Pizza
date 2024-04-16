@@ -3,33 +3,45 @@ import java.io.IOException;
 import java.io.EOFException;
 
 public class Statistics{
-static Object data;
+static ArrayList data;
+
+  
 
 static public void loadsavefile(){
-    try {
-      data = F.loadStringArray("pizza info");
-      if (data instanceof Orders){
-         Orders info = (Orders) data;
-         System.out.println(info.pizzaList.get(0).name);
+    //try {
+      data = (ArrayList)F.loadStringArray("pizza info");
+     // System.out.print(data.getClass().getName());
+      Orders orders = (Orders)data.get(0); 
+      for (Pizza p : orders.pizzaList){
+      System.out.println(p); 
+      
+         }
+            
       }
-    } catch (IOException | ClassNotFoundException e) {
-      System.out.println("Error loading data from PizzaInfo.ser: " + e.getMessage());
+      
+/*     
+      //if (data instanceof Orders){
+        // Orders info = (Orders) data;
+         //System.out.println(info.pizzaList.get(0).name);
+      }
+   // } catch (IOException | ClassNotFoundException e) {
+     // System.out.println("Error loading data from PizzaInfo.ser: " + e.getMessage());
     }
-  }
+ // }
 
    //variable to store the total turnover of the store
-   private static int totalTurnover = 0;
+  // private static int totalTurnover = 0;
 
    //variable to store the name of the most popular pizza
-   private static String mostPopularPizza = null;
+  // private static String mostPopularPizza = null;
    
    //variable to store the number of times the most popular pizza was sold
-   private static int mostPopularPizzaCount = 0;
+  // private static int mostPopularPizzaCount = 0;
 
    //method to calculate the total turnover from all orders
-   public static int turnover() {
-      return totalTurnover;
-   }
+  // public static int turnover() {
+    //  return totalTurnover;
+  // }
 
    //method to update the statistics for a new order
    public static void updateStatistics(ArrayList<Pizza> order) {
@@ -65,6 +77,7 @@ static public void loadsavefile(){
    }*/
 
    //method that returns the name of the most popular pizza
+   /*
    public static String favoritePizza() {
       if (mostPopularPizza == null) {
          return "No orders placed yet."; //ved ikke om den her metode er noget vi vil inkludere
@@ -72,4 +85,7 @@ static public void loadsavefile(){
          return mostPopularPizza;
       }
    }
+}
+}
+*/
 }
