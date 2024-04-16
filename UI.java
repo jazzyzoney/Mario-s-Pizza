@@ -186,10 +186,11 @@ public class UI{
             });
          orderButtonNorthPanel.add(deleteButton);
          
-         
+         // complete order button:
          JButton completeButton = new JButton ("Færdig");
          completeButton.addActionListener(e-> {
-            OrderList.completeOrder(OrderList.orderCounter);
+            panelNo = finalpanelNo + 1;
+            OrderList.completeOrder(panelNo);
             frame.removeAll();
             frame();
          });
