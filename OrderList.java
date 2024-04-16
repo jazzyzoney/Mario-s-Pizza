@@ -57,8 +57,7 @@ public class OrderList implements Serializable{
          
          ArrayList<Orders> completedOrder = new ArrayList <Orders>();
          completedOrder.add(orderList.get(orderNo)); 
-         completedOrder.toArray(); 
-        // F.saveStringArray(completedOrder, "pizza info");
+         F.saveStringArray(completedOrder, "pizza info");
       
          //writing to file:
         // writer = new FileWriter("Pizza Info", true);
