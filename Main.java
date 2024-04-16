@@ -9,12 +9,14 @@ public class Main{
       //int menuChoice = scanner.nextInt();
       //Menu.pizzaMenuCard(menuChoice);
    
-      OrderList.addOrder(2);
+      //OrderList.addOrder(2);
      // OrderList.printOrders();
-     
-     SwingUtilities.invokeLater(()->{ 
-         new UI();  
-      });
-      //TextUI.textUI ();
+      //TextUI.textUI();q
+      
+      
+   //  SwingUtilities.invokeLater(()->{ 
+       // new UI();  
+    //  });
+     TextUI.textUI ();
    }
 }

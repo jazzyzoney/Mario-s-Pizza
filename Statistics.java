@@ -7,7 +7,7 @@ static Object data;
 
 static public void loadsavefile(){
     try {
-      data = F.loadObject("pizza info");
+      data = F.loadStringArray("pizza info");
       if (data instanceof Orders){
          Orders info = (Orders) data;
          System.out.println(info.pizzaList.get(0).name);
