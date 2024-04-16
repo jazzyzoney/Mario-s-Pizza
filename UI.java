@@ -30,6 +30,8 @@ public class UI{
    }
    
    public static void frame(){
+      //OrderList.orderList.add(new Orders(1));
+      
       frame = new JFrame();
       Dimension size = new Dimension();
       int width = (int)size.getWidth();
@@ -72,7 +74,13 @@ public class UI{
             order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
          }
          OrderList.orderList.add(order);         
-         //SwingUtilities.updateComponentTreeUI(frame);
+         
+         //SwingUtilities.invokeLater(() ->{
+         frame.removeAll();
+         frame();
+            //frame.revalidate();
+            //mPanel.repaint();
+         //});
          
       });
       OrderList.printOrders();
