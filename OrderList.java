@@ -10,7 +10,8 @@ public class OrderList implements Serializable{
    static int orderCounter=0; 
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
-      int orderName = 0;//add scanner here
+      orderCounter++;
+      int orderName = orderCounter;//add scanner here
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
@@ -38,8 +39,8 @@ public class OrderList implements Serializable{
       Date currentDate = new Date();
       for(Orders order : orderList){
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
-         System.out.print(orderCounter+1 + ": "); 
-         orderCounter++;
+         System.out.print(orderCounter + ": "); 
+         
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
             System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.date.format(currentDate));
@@ -49,6 +50,8 @@ public class OrderList implements Serializable{
    
    public static void completeOrder(int orderNo){
       orderNo --;
+      orderList.remove(orderNo);
+      
       try{
          file = new File("Pizza Info");//creates new savefile if none exists
          if (!file.exists()){
