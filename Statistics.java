@@ -1,20 +1,29 @@
 import java.util.*;
-import java.io.IOException;
+import java.io.*;
 import java.io.EOFException;
 
 public class Statistics{
-static ArrayList data;
 
   
 
 static public void loadsavefile(){
-    //try {
-      data = (ArrayList)F.loadStringArray("pizza info");
-     // System.out.print(data.getClass().getName());
-      Orders orders = (Orders)data.get(0); 
-      for (Pizza p : orders.pizzaList){
-      System.out.println(p); 
-      
+
+try {
+OrderList.file = new File("Pizza Info.txt");
+Scanner scan = new Scanner(OrderList.file);
+      while (scan.hasNext()){
+        while (scan.hasNextInt()) {
+            int i = scan.nextInt();
+            System.out.println(i);
+        }
+        System.out.println("ny ordre.");
+        System.out.println(scan.next());
+        }
+        scan.close();
+    } 
+    catch (Exception e) {
+        e.printStackTrace();
+
          }
             
       }
