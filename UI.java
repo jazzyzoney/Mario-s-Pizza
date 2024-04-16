@@ -76,7 +76,9 @@ public class UI{
          OrderList.orderList.add(order);         
          
          //SwingUtilities.invokeLater(() ->{
-            frame.revalidate();
+         frame.removeAll();
+         frame();
+            //frame.revalidate();
             //mPanel.repaint();
          //});
          
