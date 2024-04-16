@@ -13,4 +13,7 @@ public class Pizza implements Serializable{
    public void printPizzas(){
       System.out.println(number + ". " + name + " " + price + ",-");
    }
+   public String toString(){
+   return this.name + this.price;
+   }
 }

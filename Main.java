@@ -18,5 +18,6 @@ public class Main{
        // new UI();  
     //  });
      TextUI.textUI ();
+     //Statistics.loadsavefile();
    }
 }
