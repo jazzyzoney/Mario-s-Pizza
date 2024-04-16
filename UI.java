@@ -12,26 +12,21 @@ import java.util.ArrayList;
 public class UI{
    
    static JFrame frame;
+   static JFrame sFrame;
+   static JFrame dFrame;
    
    static JPanel aPanel;
    static JPanel menuPanel;
    static JPanel mPanel;
-   
-   static JFrame sFrame;
-   static JFrame dFrame;
-   
-   static boolean orderComplete;
-   static Orders order;
 
    static ArrayList <Integer> pizzaList = new ArrayList <Integer>();
+   static int panelNo;
    
    public UI(){      
       frame();
    }
    
-   public static void frame(){
-      //OrderList.orderList.add(new Orders(1));
-      
+   public static void frame(){     
       frame = new JFrame();
       Dimension size = new Dimension();
       int width = (int)size.getWidth();
@@ -42,7 +37,6 @@ public class UI{
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
       frame.setLayout(new GridLayout(1,Menu.menu.size()));
-   
       
       aPanel();
       menuPanel();
@@ -68,23 +62,22 @@ public class UI{
       JButton addButton = new JButton("Godkend ordre");
       addButton.setBackground(Color.WHITE);
       
+      //Add order:
       addButton.addActionListener(e ->{
-         Orders order = new Orders(1);
-         for (int i = 0; i< pizzaList.size(); i ++){
-            order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
+         if(pizzaList.size() != 0){
+            OrderList.orderCounter ++;
+            Orders order = new Orders(OrderList.orderCounter);
+            for (int i = 0; i< pizzaList.size(); i ++){
+               order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
+            }
+            OrderList.orderList.add(order);         
+            pizzaList.clear();
          }
-         OrderList.orderList.add(order);         
          
-         //SwingUtilities.invokeLater(() ->{
-         frame.removeAll();
+         frame.removeAll();//refresh
          frame();
-            //frame.revalidate();
-            //mPanel.repaint();
-         //});
-         
       });
-      OrderList.printOrders();
-      
+            
       aPanel.add(addButton, BorderLayout.SOUTH);
       
       JPanel textPanel = new JPanel();
@@ -163,43 +156,51 @@ public class UI{
          orderPanel.setBackground(Color.PINK);
          orderPanel.setLayout(new BorderLayout());
          
-         JLabel orderNameLabel = new JLabel();//order name/number. Should also contain time.
+         JLabel orderNameLabel = new JLabel();
          orderNameLabel.setText("" + OrderList.orderList.get(i).name);
-         orderPanel.add(orderNameLabel, BorderLayout.SOUTH);
+         orderPanel.add(orderNameLabel, BorderLayout.NORTH);
          
          JPanel pizzaPanel = new JPanel();//Contains a list of pizzas.
-         //pizzaPanel.setLayout(new GridLayout(OrderList.orderList.size(), 1));
          pizzaPanel.setLayout(new BoxLayout(pizzaPanel, BoxLayout.Y_AXIS));
+         
          for (int j = 0; j< OrderList.orderList.get(i).pizzaList.size(); j++){
             JLabel pizzaLabel = new JLabel(OrderList.orderList.get(i).pizzaList.get(j).name);
             pizzaPanel.add(pizzaLabel, BorderLayout.CENTER);
          }
          
          orderPanel.add(pizzaPanel);
-         
-         
+
          JPanel orderButtonPanel = new JPanel ();//contains complete and delete buttons
          orderButtonPanel.setLayout(new BorderLayout());
          
          JPanel orderButtonNorthPanel = new JPanel();
          orderButtonNorthPanel.setLayout(new GridLayout(2,1));
-      
+         
+         //Delete order button:
          JButton deleteButton = new JButton("Anuller");
+         final int finalpanelNo = i;
          deleteButton.addActionListener(
             e ->{
                deleteOrderFrame();
+               panelNo = finalpanelNo;//order panel number = i.
             });
          orderButtonNorthPanel.add(deleteButton);
          
-         JButton completeButton = new JButton ("Færdiggør ordre");
-         orderButtonNorthPanel.add(completeButton);//panel located EAST on orderPanel.
+         
+         JButton completeButton = new JButton ("Færdig");
+         completeButton.addActionListener(e-> {
+            OrderList.completeOrder(OrderList.orderCounter);
+            frame.removeAll();
+            frame();
+         });
+         orderButtonNorthPanel.add(completeButton);
          
          orderButtonPanel.add(orderButtonNorthPanel, BorderLayout.NORTH);
          orderPanel.add(orderButtonPanel, BorderLayout.EAST);
          displayOrdersPanel.add(orderPanel);
-      }
+      }//end of for loop. Order panels added.
+      
       mPanel.add(displayOrdersPanel);
-   
    }
 
    public static void deleteOrderFrame(){
@@ -211,16 +212,22 @@ public class UI{
       
       JPanel dPanel = new JPanel();
       JButton yButton = new JButton ("ja");
+      
+      //yes-button pressed. Order removed from orderList.
       yButton.addActionListener(
          e -> {
-         //yes button pressed:
+            OrderList.orderList.remove(panelNo);//Fejl heromkring!! Noget med index. 
+            frame.removeAll();
+            frame();
          });
       dPanel.add(yButton);
       
+      
       JButton nButton = new JButton ("nej");
+      //"nej"-button pressed:
       nButton.addActionListener(
          e -> {
-         //no button pressed:
+            dFrame.dispose();
          });
       dPanel.add(nButton);
       
