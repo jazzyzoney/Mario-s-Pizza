@@ -16,6 +16,7 @@ public class Main{
       /*SwingUtilities.invokeLater(()->{ 
         new UI();  
      });*/
-     TextUI.textUI ();
+     Statistics.loadsavefile();
+     //TextUI.textUI ();
    }
 }
