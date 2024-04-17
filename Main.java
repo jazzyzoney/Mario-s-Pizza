@@ -9,9 +9,9 @@ public class Main{
       //int menuChoice = scanner.nextInt();
       //Menu.pizzaMenuCard(menuChoice);
    
-      //OrderList.addOrder(2);
+      OrderList.addOrder(2);
       //OrderList.printOrders();
-      //OrderList.completeOrder(1);
+      OrderList.completeOrder(1);
       //TextUI.textUI();
       
       /*SwingUtilities.invokeLater(()->{ 
@@ -22,6 +22,7 @@ public class Main{
      System.out.println(Statistics.totalTurnover());
      Statistics.mostSold();
      Statistics.printCompletedOrders();
+     //System.out.println(Statistics.mostSold());
      //TextUI.textUI ();
      
    }

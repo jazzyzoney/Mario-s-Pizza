@@ -5,7 +5,9 @@ import java.io.EOFException;
 public class Statistics{
 
    static ArrayList <Orders> completedOrders = new ArrayList <Orders>();
+   static int [] mostSoldList;
    static Scanner scanner;
+   static int maxSold = 0;
    
    static public void loadsavefile(){
       try {
@@ -52,17 +54,23 @@ public class Statistics{
       OrderList.printOrders(completedOrders);
    }
    
-   public static void mostSold(){
-      int [] mostSoldList = new int[Menu.menu.size()];
+   public static String mostSold(){
+      mostSoldList = new int[Menu.menu.size()];
       
       for(Orders o : completedOrders){
          for(Pizza p: o.pizzaList){
             mostSoldList[p.number - 1] ++;
          }
       }
+      
+      String mostSoldPizza = "";
       for(int i = 0; i < mostSoldList.length ; i++){
-         System.out.println(mostSoldList[i]);
-      }
+         if (mostSoldList[i] > maxSold){
+            maxSold = mostSoldList[i];
+            mostSoldPizza = Menu.menu.get(i).name;
+         }
+      }//end of for loop.
+      
+      return mostSoldPizza;
    }
-   
 }
