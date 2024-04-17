@@ -88,7 +88,7 @@ public class TextUI{
             
          case 2:
             do {
-               //System.out.println(Statistics.mostSold());
+               System.out.println(Statistics.mostSold() + " (" + Statistics.maxSold + ") ");
                      
                System.out.println("\nVil du tilbage? (y/n)");
             } while (scanner.next().equalsIgnoreCase("n"));
