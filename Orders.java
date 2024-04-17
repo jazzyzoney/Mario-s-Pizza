@@ -8,7 +8,7 @@ public class Orders implements Serializable{
    ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
    
    public Orders(int name){
-      this.date = new SimpleDateFormat("Y/MM/dd HH:mm");
+      this.date = new SimpleDateFormat("Y/MM/dd HH:mm:ss");
       this.name = name;
    }
 }

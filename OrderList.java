@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 public class OrderList implements Serializable{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
@@ -66,13 +67,16 @@ public class OrderList implements Serializable{
         writer = new FileWriter("Pizza Info", true);
         writer.write("a\n");//marks new order
         for (Pizza p : orderList.get(orderNo).pizzaList){
-            writer.write(p.number + " " + p.price + "\n");
+        Date currentDate = new Date();
+        SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm:ss");
+            writer.write(p.number + " " + p.price + " " + date.format(currentDate) +"\n");
          
          writer.close();
       }
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }
+      orderList.remove(orderNo);
    }
    
    public static void deleteOrder(int orderNo){
