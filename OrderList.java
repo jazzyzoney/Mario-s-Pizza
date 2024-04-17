@@ -65,14 +65,14 @@ public class OrderList implements Serializable{
          
         // writing to file:
         writer = new FileWriter("Pizza Info", true);
-        writer.write("a\n");//marks new order
-        for (Pizza p : orderList.get(orderNo).pizzaList){
         Date currentDate = new Date();
-        SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm:ss");
-            writer.write(p.number + " " + p.price + " " + date.format(currentDate) +"\n");
-         
+        SimpleDateFormat date = new SimpleDateFormat(" - Y/MM/dd, HH:mm:ss");
+        writer.write("\na\n" + orderList.get(orderNo).name + date.format(currentDate));//marks new order
+        for (Pizza p : orderList.get(orderNo).pizzaList){
+            writer.write("\n" + p.number);
+         }
          writer.close();
-      }
+      
       }catch(Exception e){
          System.out.println("fejl: " + e);
       }
