@@ -20,6 +20,8 @@ public class Main{
      
      Statistics.loadsavefile();
      System.out.println(Statistics.totalTurnover());
+     Statistics.mostSold();
+     Statistics.printCompletedOrders();
      //TextUI.textUI ();
      
    }

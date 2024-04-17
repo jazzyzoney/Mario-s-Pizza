@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Orders implements Serializable{
    SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
+   String time;
    int name;
    ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
    
