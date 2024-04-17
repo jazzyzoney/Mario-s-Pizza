@@ -12,7 +12,7 @@ public class OrderList implements Serializable{
 
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       orderCounter++;
-      int orderName = orderCounter;//add scanner here
+      int orderName = orderCounter;
       Orders order = new Orders(orderName);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
@@ -40,11 +40,11 @@ public class OrderList implements Serializable{
       Date currentDate = new Date();
       for(Orders order : printList){
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
-         System.out.print(orderCounter + ": "); 
+         System.out.print(order.name + ": "); 
          
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
-            System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.date.format(currentDate));
+            System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.time);
          }
       }
    }
