@@ -47,12 +47,17 @@ public class Statistics{
    }
    
    public static void printCompletedOrders(){
+      OrderList.printOrders(completedOrders);
    }
    
    public static void mostSold(){
+      int [] mostSoldList = new int[Menu.menu.size()];
+      
+      for(Orders o : completedOrders){
+         for(Pizza p: o.pizzaList){
+            mostSoldList[p.number] ++;
+         }
+      }
    }
    
-   ArrayList<Integer> pizzaNumbers = new ArrayList<>();
-   ArrayList<Integer> prices = new ArrayList<>();
-
 }
