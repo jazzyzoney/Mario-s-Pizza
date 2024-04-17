@@ -10,7 +10,7 @@ public class Statistics{
       try {
          OrderList.file = new File("Pizza Info.txt");
          Scanner scan = new Scanner(OrderList.file);
-         //for (int i = 0 ; i < 10 ; i++){
+         
          while (scan.hasNextLine()){
             Orders order = new Orders(1);
             scan.next();
@@ -23,28 +23,28 @@ public class Statistics{
                if (pizzaNo <= Menu.menu.size()){
                   order.pizzaList.add(Menu.menu.get(pizzaNo - 1));
                }
-               
                System.out.println(pizzaNo + "goddag");
-            }
-            
+            } 
             completedOrders.add(order);
-            
-            //System.out.println("ny ordre.");
-            
-         //System.out.println(scan.next());
-         //}
+         } 
+         scan.close();
          
-      } 
-      scan.close();
-      }
-      catch (Exception e) {
-         e.printStackTrace();
+      }catch (Exception e) {
+         System.out.println("fejl: " + e);
       }  
       
-      OrderList.printOrders(completedOrders);
-         
-   }   
-    
+      OrderList.printOrders(completedOrders);  
+   } //end of load save file()  
+   
+   public static void totalTurnover(){
+   }
+   
+   public static void printCompletedOrders(){
+   }
+   
+   public static void mostSold(){
+   }
+   
    ArrayList<Integer> pizzaNumbers = new ArrayList<>();
    ArrayList<Integer> prices = new ArrayList<>();
 
