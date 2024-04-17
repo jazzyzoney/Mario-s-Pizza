@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Pizza implements Serializable{
    int price =0; 
-   int number; 
+   int number = Menu.menu.size(); 
    String name=""; 
    
    public Pizza(String name, int price){
@@ -14,6 +14,6 @@ public class Pizza implements Serializable{
       System.out.println(number + ". " + name + " " + price + ",-");
    }
    public String toString(){
-   return this.name + this.price;
+      return this.name + this.price;
    }
 }

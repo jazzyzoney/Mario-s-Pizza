@@ -10,13 +10,17 @@ public class Main{
       //Menu.pizzaMenuCard(menuChoice);
    
       //OrderList.addOrder(2);
-     // OrderList.printOrders();
+      //OrderList.printOrders();
+      //OrderList.completeOrder(1);
       //TextUI.textUI();
       
       /*SwingUtilities.invokeLater(()->{ 
         new UI();  
      });*/
+     
      Statistics.loadsavefile();
+     System.out.println(Statistics.totalTurnover());
      //TextUI.textUI ();
+     
    }
 }
