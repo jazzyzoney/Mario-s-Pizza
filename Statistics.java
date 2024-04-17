@@ -36,7 +36,14 @@ public class Statistics{
       OrderList.printOrders(completedOrders);  
    } //end of load save file()  
    
-   public static void totalTurnover(){
+   public static int totalTurnover(){
+      int turnover = 0;
+      for(Orders o : completedOrders){
+         for (Pizza p : o.pizzaList){
+            turnover += p.price;
+         }
+      }
+      return turnover;
    }
    
    public static void printCompletedOrders(){
