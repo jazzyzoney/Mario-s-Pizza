@@ -50,7 +50,7 @@ public class OrderList implements Serializable{
    
    public static void completeOrder(int orderNo){
       orderNo --;
-      orderList.remove(orderNo);
+      //orderList.remove(orderNo);
       
       try{
          file = new File("Pizza Info");//creates new savefile if none exists

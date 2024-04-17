@@ -1,10 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class TextUI{
    static Scanner scanner = new Scanner (System.in);
    public static void textUI (){
    
-   Menu.addPizzamenu();
+      Menu.addPizzamenu();
    
       String Letters = ""; 
       System.out.print("Mamma mia velkommen til Mario's pizza order system!\n");
@@ -23,7 +23,7 @@ public class TextUI{
          switch (Letters){
          
             case "add":
-               System.out.println("Du skal nu skrive hvor mange pizzaer ordreren skal indeholde");
+               System.out.println("Du skal nu skrive hvor mange pizzaer ordreren skal indeholde: ");
                int ordernumber = scanner.nextInt();
                OrderList.addOrder(ordernumber);
                break; 
@@ -60,9 +60,9 @@ public class TextUI{
                break;
                
             case "statistik":
-               Statistics.loadsavefile();
-              // Statistics.turnover();
-               //Statistics.favoritePizza();
+               ArrayList<Orders> orders = OrderList.orderList;
+               //Statistics.loadsavefile();
+               //Statistics.calculateStatistics(orders);
                break;
          
             case "q":
