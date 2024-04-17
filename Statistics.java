@@ -5,32 +5,36 @@ import java.io.EOFException;
 public class Statistics{
 
    static ArrayList <Orders> completedOrders = new ArrayList <Orders>();
+   static Scanner scanner;
    
    static public void loadsavefile(){
       try {
          OrderList.file = new File("Pizza Info");
-         Scanner scan = new Scanner(OrderList.file);
+         scanner = new Scanner(OrderList.file);
          
-         while (scan.hasNextLine()){
+         while (scanner.hasNext()){
             Orders order = new Orders(1);
-            scan.next();
-            order.name = scan.nextInt();
-            String time = scan.nextLine();
+            scanner.next();
+            
+            order.name = scanner.nextInt();
+            String time = scanner.nextLine();
             System.out.println(time);
             
-            while (scan.hasNextInt()){
-               int pizzaNo = scan.nextInt();
+            while (scanner.hasNextInt()){
+               int pizzaNo = scanner.nextInt();
                if (pizzaNo <= Menu.menu.size()){
                   order.pizzaList.add(Menu.menu.get(pizzaNo - 1));
                }
-            } 
+            }
             completedOrders.add(order);
+            
          } 
-         scan.close();
+         
          
       }catch (Exception e) {
          System.out.println("fejl: " + e);
       }  
+      scanner.close();
       
       //OrderList.printOrders(completedOrders);  
    } //end of load save file()  
