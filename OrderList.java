@@ -36,9 +36,9 @@ public class OrderList implements Serializable{
       orderList.add(order);//adding order arraylist to orderlist arraylist
    }//end of add pizzas method
    
-   public static void printOrders(){
+   public static void printOrders(ArrayList <Orders> printList){
       Date currentDate = new Date();
-      for(Orders order : orderList){
+      for(Orders order : printList){
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          System.out.print(orderCounter + ": "); 
          
