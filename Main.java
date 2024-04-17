@@ -9,19 +9,19 @@ public class Main{
       //int menuChoice = scanner.nextInt();
       //Menu.pizzaMenuCard(menuChoice);
    
-      OrderList.addOrder(2);
+      //OrderList.addOrder(2);
       //OrderList.printOrders();
-      OrderList.completeOrder(1);
+      //OrderList.completeOrder(1);
       //TextUI.textUI();
       
-      /*SwingUtilities.invokeLater(()->{ 
+      SwingUtilities.invokeLater(()->{ 
         new UI();  
-     });*/
-     
+     });
+     /*
      Statistics.loadsavefile();
      System.out.println(Statistics.totalTurnover());
      Statistics.mostSold();
-     Statistics.printCompletedOrders();
+     Statistics.printCompletedOrders();*/
      //System.out.println(Statistics.mostSold());
      //TextUI.textUI ();
      

@@ -243,5 +243,19 @@ public class UI{
       sFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       sFrame.setLocationRelativeTo(null);
       sFrame.setTitle("Statistik");
+      
+      JPanel sPanel = new JPanel();
+      sPanel.setLayout(new GridLayout(1,2));
+      JPanel menuPanel = new JPanel ();
+      menuPanel.setLayout(new GridLayout(1, Menu.menu.size()));
+      
+      menuPanel.setBackground(Color.PINK);
+      for (int i = 0 ; i < Menu.menu.size() ; i++){
+         JLabel menuLabel = new JLabel((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
+         menuPanel.add(menuLabel);
+      }
+      
+      sPanel.add(menuPanel);
+      
    }
 }
