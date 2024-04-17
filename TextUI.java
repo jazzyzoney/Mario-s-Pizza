@@ -80,17 +80,18 @@ public class TextUI{
                   
          case 1:
             do {
-               Statistics.totalTurnover();
-                     
+               System.out.println(Statistics.totalTurnover());
+            
                System.out.println("\nVil du tilbage? (y/n)");
-            } while (scanner.next().equalsIgnoreCase("y"));
-                  
+            } while (scanner.next().equalsIgnoreCase("n"));
+            break;
+            
          case 2:
             do {
-               Statistics.mostSold();
+               //System.out.println(Statistics.mostSold());
                      
                System.out.println("\nVil du tilbage? (y/n)");
-            } while (scanner.next().equalsIgnoreCase("y"));
+            } while (scanner.next().equalsIgnoreCase("n"));
             break;
       }
    }
