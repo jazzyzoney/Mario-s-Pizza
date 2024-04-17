@@ -7,6 +7,7 @@ public class TextUI{
       Menu.addPizzamenu();
    
       String Letters = ""; 
+      
       System.out.print("Mamma mia velkommen til Mario's pizza order system!\n");
       do {
          System.out.print("\nDu har nu syv valgmuligheder:");
@@ -60,9 +61,9 @@ public class TextUI{
                break;
                
             case "statistik":
-               ArrayList<Orders> orders = OrderList.orderList;
-               //Statistics.loadsavefile();
-               //Statistics.calculateStatistics(orders);
+               Statistics.loadsavefile();
+               System.out.println("Vil du se 1: omsaetningen, eller 2: mest populaere pizza");
+               stats();
                break;
          
             case "q":
@@ -70,5 +71,27 @@ public class TextUI{
                System.exit(0);        
          }
       } while(true);
+   }
+   
+   public static void stats(){
+      int Numbers = 0;
+      Numbers = scanner.nextInt();
+      switch (Numbers){
+                  
+         case 1:
+            do {
+               Statistics.totalTurnover();
+                     
+               System.out.println("\nVil du tilbage? (y/n)");
+            } while (scanner.next().equalsIgnoreCase("y"));
+                  
+         case 2:
+            do {
+               Statistics.mostSold();
+                     
+               System.out.println("\nVil du tilbage? (y/n)");
+            } while (scanner.next().equalsIgnoreCase("y"));
+            break;
+      }
    }
 }
