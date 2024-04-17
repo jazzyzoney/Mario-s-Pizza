@@ -20,7 +20,7 @@ public class Menu{
       menu.add(new Pizza("Blizz", 61));
       menu.add(new Pizza("Venezia", 61));
       menu.add(new Pizza("Mafia", 61));
-      menu.add(new Pizza("Le Blissola", 61));
+      menu.add(new Pizza("London", 61));
       menu.add(new Pizza("Frittelli", 52));
       menu.add(new Pizza("Mamma Mia!", 55));
       menu.add(new Pizza("Vino Buono", 57));
