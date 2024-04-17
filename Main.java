@@ -11,13 +11,11 @@ public class Main{
    
       //OrderList.addOrder(2);
      // OrderList.printOrders();
-      //TextUI.textUI();q
+      //TextUI.textUI();
       
-      
-      SwingUtilities.invokeLater(()->{ 
+      /*SwingUtilities.invokeLater(()->{ 
         new UI();  
-     });
-     //TextUI.textUI ();
-     //Statistics.loadsavefile();
+     });*/
+     TextUI.textUI ();
    }
 }
