@@ -33,18 +33,18 @@ public class TextUI{
                System.out.println("Hvilken ordrer er done?");
                int sletnummer = scanner.nextInt();
                OrderList.completeOrder(sletnummer);
-               System.out.println("Ordreren" + "" + sletnummer + "" + "er nu blevet markeret som done og gemt til statistikken");
+               System.out.println("Ordreren " + "" + sletnummer + "" + " er nu blevet markeret som done og gemt til statistikken");
                break; 
                
             case "delete":
                System.out.println("Hvilken ordrer skal slettes?");
                int deletenumber = scanner.nextInt();
                OrderList.deleteOrder(deletenumber);
-               System.out.println("Ordreren " + "  " + deletenumber + "  " + " er nu blevet markeret som slettet og er fjernet fra dell computeren");
+               System.out.println("Ordren " + deletenumber + " er nu blevet markeret som slettet og er fjernet fra dell computeren");
                break;
                
             case "view":         
-               OrderList.printOrders(OrderList.orderList, order.startTime);
+               OrderList.printOrders(OrderList.orderList, false);
                break;
                
             case "menu":
@@ -76,6 +76,7 @@ public class TextUI{
    public static void stats(){
       int Numbers = 0;
       Numbers = scanner.nextInt();
+      Statistics.mostSold();
       switch (Numbers){
                   
          case 1:
@@ -88,7 +89,7 @@ public class TextUI{
             
          case 2:
             do {
-               System.out.println(Statistics.mostSold() + " (" + Statistics.maxSold + ") ");
+               System.out.println(Menu.menu.get(Statistics.mostSoldPizza).name + " (" + Statistics.maxSold + ") ");
                      
                System.out.println("\nVil du tilbage? (y/n)");
             } while (scanner.next().equalsIgnoreCase("n"));
