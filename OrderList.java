@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 
-public class OrderList implements Serializable{
+public class OrderList{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
    static Scanner scanner = new Scanner(System.in);
    static File file;

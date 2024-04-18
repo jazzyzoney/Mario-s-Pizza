@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Pizza implements Serializable{
+public class Pizza{
    int price =0; 
    int number = Menu.menu.size(); 
    String name=""; 
