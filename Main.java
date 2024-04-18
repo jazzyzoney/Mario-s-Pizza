@@ -16,7 +16,7 @@ public class Main{
       
       SwingUtilities.invokeLater(()->{ 
         new UI();  
-     });
+      });
      /*
      Statistics.loadsavefile();
      System.out.println(Statistics.totalTurnover());
