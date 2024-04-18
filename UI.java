@@ -162,8 +162,10 @@ public class UI{
          orderPanel.setBackground(Color.PINK);
          orderPanel.setLayout(new BorderLayout());
          
+         //contains order number and time.
          JPanel orderHeaderPanel = new JPanel();
          orderHeaderPanel.setLayout(new BorderLayout());
+         orderHeaderPanel.setBackground(Color.PINK);
          
          JLabel orderNameLabel = new JLabel();
          orderNameLabel.setText("" + OrderList.orderList.get(i).name);
@@ -303,8 +305,8 @@ public class UI{
       //dato (fra - til)
       JLabel datesLabel1 = new JLabel();
       JLabel datesLabel2 = new JLabel();
-      datesLabel1.setText("   Fra: " + Statistics.completedOrders.get(0).time);
-      datesLabel2.setText("   Til: " + Statistics.completedOrders.get(Statistics.completedOrders.size() - 1).time);
+      datesLabel1.setText("   Fra: " + Statistics.completedOrders.get(0).completedTime);
+      datesLabel2.setText("   Til: " + Statistics.completedOrders.get(Statistics.completedOrders.size() - 1).completedTime);
       
       statisticsPanel.add(datesLabel1);
       statisticsPanel.add(datesLabel2);

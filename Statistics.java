@@ -21,7 +21,7 @@ public class Statistics{
             scanner.next();
             
             order.name = scanner.nextInt();
-            order.time = scanner.nextLine();
+            order.completedTime = scanner.nextLine();
             //System.out.println(order.time);
             
             while (scanner.hasNextInt()){
@@ -53,7 +53,7 @@ public class Statistics{
    }
    
    public static void printCompletedOrders(){
-      OrderList.printOrders(completedOrders);
+      OrderList.printOrders(completedOrders, true);
    }
    
    public static void mostSold(){
