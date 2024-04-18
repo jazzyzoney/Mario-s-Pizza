@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 import java.io.*;
 
-public class Orders implements Serializable{
+public class Orders{
    SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
    String time;
    int name;

@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 
-public class OrderList implements Serializable{
+public class OrderList{
    static ArrayList<Orders> orderList = new ArrayList <Orders>();
    static Scanner scanner = new Scanner(System.in);
    static File file;
@@ -66,7 +66,7 @@ public class OrderList implements Serializable{
         // writing to file:
         writer = new FileWriter("Pizza Info", true);
         Date currentDate = new Date();
-        SimpleDateFormat date = new SimpleDateFormat(" Y/MM/dd, HH:mm:ss");
+        SimpleDateFormat date = new SimpleDateFormat(" Y MM dd HH mm ss");
         writer.write("a\n" + orderList.get(orderNo).name + date.format(currentDate));//marks new order
         for (Pizza p : orderList.get(orderNo).pizzaList){
             writer.write("\n" + p.number);
