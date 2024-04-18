@@ -8,6 +8,8 @@ public class Statistics{
    static int [] mostSoldList;
    static Scanner scanner;
    static int maxSold = 0;
+   static int totalSold;
+   static int mostSoldPizza;
    
    static public void loadsavefile(){
       try {
@@ -54,7 +56,7 @@ public class Statistics{
       OrderList.printOrders(completedOrders);
    }
    
-   public static String mostSold(){
+   public static void mostSold(){
       mostSoldList = new int[Menu.menu.size()];
       
       for(Orders o : completedOrders){
@@ -62,15 +64,14 @@ public class Statistics{
             mostSoldList[p.number - 1] ++;
          }
       }
+
       
-      String mostSoldPizza = "";
       for(int i = 0; i < mostSoldList.length ; i++){
+         totalSold += mostSoldList[i];
          if (mostSoldList[i] > maxSold){
             maxSold = mostSoldList[i];
-            mostSoldPizza = Menu.menu.get(i).name;
+            mostSoldPizza = i;
          }
       }//end of for loop.
-      
-      return mostSoldPizza;
    }
 }

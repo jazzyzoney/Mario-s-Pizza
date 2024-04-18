@@ -74,19 +74,22 @@ public class UI{
             pizzaList.clear();
          }
          
-         frame.removeAll();//refresh
+         frame.dispose();
          frame();
+         
       });
             
       aPanel.add(addButton, BorderLayout.SOUTH);
       
       JPanel textPanel = new JPanel();
-      textPanel.setBackground(new Color(189,201,165));
+      //textPanel.setBackground(new Color(189,201,165));
+      textPanel.setBackground(new Color(204,235,197));
+      textPanel.setBackground(new Color(191, 223, 217));
       textPanel.setLayout(new GridLayout(20, 1));
       
       JLabel instrLabel1 = new JLabel("     1. Tryk på menukortet, for at tilføje pizzaer.");
       JLabel instrLabel2 = new JLabel("     2. Tryk på [Godkend ordre]-knappen for at godkende ordren");
-      JLabel instrLabel3 = new JLabel("     3. Tryk på [Færdiggør ordre] for at fjerne ordren fra ordrelisten."); 
+      JLabel instrLabel3 = new JLabel("     3. Tryk på [Færdig] for at fjerne ordren fra ordrelisten. Ordren gemmes i statistikken."); 
       JLabel instrLabel4 = new JLabel("     4. Tryk på [Annuller] for at anullere ordren");
       
       textPanel.add(instrLabel1);
@@ -103,6 +106,7 @@ public class UI{
       
       //Menu.addPizzamenu();
       menuPanel.setLayout(new GridLayout(Menu.menu.size(), 1));
+      menuPanel.setBackground(Color.WHITE);
       for (int i = 0; i < Menu.menu.size(); i++){
          JButton button = new JButton((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
          
@@ -124,12 +128,13 @@ public class UI{
    public static void mPanel(){
       //Marios orderPanel            
       mPanel = new JPanel();
-      mPanel.setBackground(new Color(237,165,145));//find en bedre grøn.
+      mPanel.setBackground(new Color(237,165,145));
       mPanel.setLayout(new BorderLayout());//new GridLayout(10,1));
       
       //mario orderPanel header:
       JPanel mHeaderPanel = new JPanel();
       mHeaderPanel.setLayout(new BorderLayout());
+      mHeaderPanel.setBackground(Color.WHITE);
       
       JButton statisticsButton = new JButton("Statistik");
       statisticsButton.addActionListener(
@@ -149,19 +154,30 @@ public class UI{
       
       JPanel displayOrdersPanel = new JPanel();
       displayOrdersPanel.setLayout(new BoxLayout(displayOrdersPanel, BoxLayout.Y_AXIS));//panel which contains all order panels.
-         
+      displayOrdersPanel.setBackground(Color.WHITE);
+      
       //add Order orderPanels:
       for (int i = 0; i < OrderList.orderList.size(); i++){         
          JPanel orderPanel = new JPanel();//Contains an order.
          orderPanel.setBackground(Color.PINK);
          orderPanel.setLayout(new BorderLayout());
          
+         JPanel orderHeaderPanel = new JPanel();
+         orderHeaderPanel.setLayout(new BorderLayout());
+         
          JLabel orderNameLabel = new JLabel();
          orderNameLabel.setText("" + OrderList.orderList.get(i).name);
-         orderPanel.add(orderNameLabel, BorderLayout.NORTH);
+         orderHeaderPanel.add(orderNameLabel, BorderLayout.WEST);
+         
+         JLabel orderTimeLabel = new JLabel();
+         orderTimeLabel.setText(OrderList.orderList.get(i).startTime);
+         orderHeaderPanel.add(orderTimeLabel, BorderLayout.EAST);
+         
+         orderPanel.add(orderHeaderPanel, BorderLayout.NORTH);
          
          JPanel pizzaPanel = new JPanel();//Contains a list of pizzas.
          pizzaPanel.setLayout(new BoxLayout(pizzaPanel, BoxLayout.Y_AXIS));
+         pizzaPanel.setBackground(Color.WHITE);
          
          for (int j = 0; j< OrderList.orderList.get(i).pizzaList.size(); j++){
             JLabel pizzaLabel = new JLabel(OrderList.orderList.get(i).pizzaList.get(j).name);
@@ -172,9 +188,11 @@ public class UI{
 
          JPanel orderButtonPanel = new JPanel ();//contains complete and delete buttons
          orderButtonPanel.setLayout(new BorderLayout());
+         orderButtonPanel.setBackground(Color.WHITE);
          
          JPanel orderButtonNorthPanel = new JPanel();
          orderButtonNorthPanel.setLayout(new GridLayout(2,1));
+         orderButtonNorthPanel.setBackground(Color.WHITE);
          
          //Delete order button:
          JButton deleteButton = new JButton("Anuller");
@@ -191,7 +209,8 @@ public class UI{
          completeButton.addActionListener(e-> {
             panelNo = finalpanelNo + 1;
             OrderList.completeOrder(panelNo);
-            frame.removeAll();
+            //frame.removeAll();
+            frame.dispose();
             frame();
          });
          orderButtonNorthPanel.add(completeButton);
@@ -201,7 +220,9 @@ public class UI{
          displayOrdersPanel.add(orderPanel);
       }//end of for loop. Order panels added.
       
-      mPanel.add(displayOrdersPanel);
+      JScrollPane scrollPane = new JScrollPane(displayOrdersPanel);
+      
+      mPanel.add(scrollPane);
    }
 
    public static void deleteOrderFrame(){
@@ -212,16 +233,37 @@ public class UI{
       dFrame.setLocationRelativeTo(frame);
       
       JPanel dPanel = new JPanel();
+      dPanel.setLayout(new GridLayout(2,1));
+      dPanel.setBackground(Color.WHITE);
+      
+      
+      JPanel labelPanel = new JPanel();
+      labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.Y_AXIS));
+      labelPanel.setBackground(Color.WHITE);
+      
+      JLabel deleteLabel = new JLabel();
+      JLabel deleteLabel2= new JLabel();
+
+      deleteLabel.setText("        Vil du slette ordren?");
+      deleteLabel2.setText("        Den vil ikke blive gemt.");
+      labelPanel.add(deleteLabel);
+      labelPanel.add(deleteLabel2);
+      
+      dPanel.add(labelPanel);
+      
+      JPanel buttonPanel = new JPanel();
+      buttonPanel.setBackground(Color.WHITE);
+      
       JButton yButton = new JButton ("ja");
       
       //yes-button pressed. Order removed from orderList.
       yButton.addActionListener(
          e -> {
-            OrderList.orderList.remove(panelNo);//Fejl heromkring!! Noget med index. 
+            OrderList.orderList.remove(panelNo);
             frame.removeAll();
             frame();
          });
-      dPanel.add(yButton);
+      buttonPanel.add(yButton);
       
       
       JButton nButton = new JButton ("nej");
@@ -230,8 +272,9 @@ public class UI{
          e -> {
             dFrame.dispose();
          });
-      dPanel.add(nButton);
+      buttonPanel.add(nButton);
       
+      dPanel.add(buttonPanel);
       dFrame.add(dPanel);
    }
    
@@ -246,16 +289,67 @@ public class UI{
       
       JPanel sPanel = new JPanel();
       sPanel.setLayout(new GridLayout(1,2));
-      JPanel menuPanel = new JPanel ();
-      menuPanel.setLayout(new GridLayout(1, Menu.menu.size()));
+      sPanel.setBackground(Color.RED);
       
+      //load save file
+      Statistics.loadsavefile();
+      Statistics.mostSold();
+
+      
+      JPanel statisticsPanel = new JPanel();
+      statisticsPanel.setLayout(new GridLayout(20,1));
+      statisticsPanel.setBackground(Color.WHITE);
+      
+      //dato (fra - til)
+      JLabel datesLabel1 = new JLabel();
+      JLabel datesLabel2 = new JLabel();
+      datesLabel1.setText("   Fra: " + Statistics.completedOrders.get(0).time);
+      datesLabel2.setText("   Til: " + Statistics.completedOrders.get(Statistics.completedOrders.size() - 1).time);
+      
+      statisticsPanel.add(datesLabel1);
+      statisticsPanel.add(datesLabel2);
+      
+      //total turnover
+      JLabel turnoverLabel = new JLabel("   Omsætning: " + Statistics.totalTurnover());
+      statisticsPanel.add(turnoverLabel);
+      //pizzas sold
+      JLabel totalSoldLabel = new JLabel("   Pizzaer solgt i alt: " + Statistics.totalSold);
+      statisticsPanel.add(totalSoldLabel);
+      
+      //mest populære
+      JLabel mostSoldLabel = new JLabel("   Mest solgte pizza: " + Menu.menu.get(Statistics.mostSoldPizza).name);
+      sPanel.add(statisticsPanel);
+      
+      
+      
+      //Viser menukort, og hvor mange, som er blevet solgt.
+      JPanel menuPanel = new JPanel ();
+      menuPanel.setLayout(new GridLayout(Menu.menu.size(), 1));
       menuPanel.setBackground(Color.PINK);
+            
+      //menu is printed.
       for (int i = 0 ; i < Menu.menu.size() ; i++){
-         JLabel menuLabel = new JLabel((i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
-         menuPanel.add(menuLabel);
+         JPanel menuLabelPanel = new JPanel();
+         menuLabelPanel.setLayout(new BorderLayout());
+         
+         if (i % 2 == 1){
+            menuLabelPanel.setBackground(Color.WHITE);
+         }else{
+            menuLabelPanel.setBackground(new Color(250,245,240));
+         }
+         
+         //how many of each item on the menu has been sold:
+         JLabel soldLabel = new JLabel();
+         soldLabel.setText(Statistics.mostSoldList[i] + "      ");
+         menuLabelPanel.add(soldLabel, BorderLayout.EAST);
+         
+         JLabel menuLabel = new JLabel("  " + (i + 1) + ". " + Menu.menu.get(i).name + ", " + Menu.menu.get(i).price + " kr");
+         menuLabelPanel.add(menuLabel, BorderLayout.WEST);
+         menuPanel.add(menuLabelPanel);
       }
       
       sPanel.add(menuPanel);
+      sFrame.add(sPanel);
       
    }
 }
