@@ -44,7 +44,7 @@ public class TextUI{
                break;
                
             case "view":         
-               OrderList.printOrders(OrderList.orderList);
+               OrderList.printOrders(OrderList.orderList, order.startTime);
                break;
                
             case "menu":

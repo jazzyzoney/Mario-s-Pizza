@@ -4,7 +4,8 @@ import java.io.*;
 
 public class Orders{
    SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
-   String time;
+   String completedTime; 
+   String startTime;
    int name;
    ArrayList<Pizza> pizzaList = new ArrayList<Pizza>();
    

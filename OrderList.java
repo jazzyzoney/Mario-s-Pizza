@@ -9,11 +9,13 @@ public class OrderList{
    static File file;
    static FileWriter writer;
    static int orderCounter=0; 
-
+   static Date currentDate = new Date();
+   
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       orderCounter++;
       int orderName = orderCounter;
       Orders order = new Orders(orderName);
+      order.startTime = ("" + currentDate);
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
          System.out.println("Pizza nr: " + (i+1));
@@ -36,15 +38,22 @@ public class OrderList{
       orderList.add(order);//adding order arraylist to orderlist arraylist
    }//end of add pizzas method
    
-   public static void printOrders(ArrayList <Orders> printList){
-      Date currentDate = new Date();
+   public static void printOrders(ArrayList <Orders> printList, boolean isCompleted){
+      
+      
       for(Orders order : printList){
          //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          System.out.print(order.name + ": "); 
+         String time;
+         if (isCompleted){
+            time= order.completedTime;
+         }else{
+            time=order.startTime;
+         }
          
          for (Pizza pizza : order.pizzaList){
             System.out.print(pizza.name + ", ");
-            System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + order.time);
+            System.out.println(pizza.number + ", " + pizza.price + " kr." + " " + time);
          }
       }
    }
@@ -52,6 +61,7 @@ public class OrderList{
    public static void completeOrder(int orderNo){
       orderNo --;
       //orderList.remove(orderNo);
+      orderList.get(orderNo).completedTime = ("" + currentDate);
       
       try{
          file = new File("Pizza Info");//creates new savefile if none exists
