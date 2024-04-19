@@ -5,9 +5,9 @@ public class Main{
    
    public static void main (String [] args){
       Menu.addPizzamenu(); 
-      SwingUtilities.invokeLater(()->{ 
+      /*SwingUtilities.invokeLater(()->{ 
         new UI();  
-      });
+      });*/
      
      TextUI.textUI();
    }

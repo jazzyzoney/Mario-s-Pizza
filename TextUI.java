@@ -62,8 +62,6 @@ public class TextUI{
                
             case "statistik":
                   Statistics.loadsavefile();
-                   break;
-               }
                
                System.out.println("Vil du se 1: omsaetningen, eller 2: mest populaere pizza");
                stats();
