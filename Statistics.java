@@ -10,12 +10,14 @@ public class Statistics{
    static int maxSold = 0;
    static int totalSold;
    static int mostSoldPizza;
-   static boolean fileDoesNotExist;
+   static boolean fileDoesNotExist = false;
    
    static public void loadsavefile(){
       try {
          OrderList.file = new File("Pizza Info");
          scanner = new Scanner(OrderList.file);
+         
+         completedOrders.clear();
          
          while (scanner.hasNext()){
             Orders order = new Orders(1);
@@ -32,9 +34,9 @@ public class Statistics{
                }
             }
             completedOrders.add(order);
-            scanner.close();
+            
          }   
-         
+         scanner.close();
       }catch (Exception e) {
          //System.out.println(e);
          fileDoesNotExist = true;
@@ -59,12 +61,14 @@ public class Statistics{
    public static void mostSold(){
       mostSoldList = new int[Menu.menu.size()];
       
+      
       for(Orders o : completedOrders){
          for(Pizza p: o.pizzaList){
             mostSoldList[p.number - 1] ++;
          }
       }
-   
+      
+      totalSold = 0;
       for(int i = 0; i < mostSoldList.length ; i++){
          totalSold += mostSoldList[i];
          if (mostSoldList[i] > maxSold){
