@@ -10,6 +10,7 @@ public class Statistics{
    static int maxSold = 0;
    static int totalSold;
    static int mostSoldPizza;
+   static boolean fileDoesNotExist;
    
    static public void loadsavefile(){
       try {
@@ -35,8 +36,8 @@ public class Statistics{
          }   
          
       }catch (Exception e) {
-         System.out.println("Der er ikke nogen fil, prøv igen senere :)");
-         TextUI.textUI();
+         //System.out.println(e);
+         fileDoesNotExist = true;
       }  
    } //end of load save file()  
    
