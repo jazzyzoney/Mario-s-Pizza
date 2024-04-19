@@ -9,6 +9,6 @@ public class Main{
         new UI();  
       });*/
      
-     //TextUI.textUI();
+     TextUI.textUI();
    }
 }
