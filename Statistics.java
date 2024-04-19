@@ -31,9 +31,7 @@ public class Statistics{
                }
             }
             completedOrders.add(order);
-            
-         } 
-         
+         }   
          
       }catch (Exception e) {
          System.out.println("fejl: " + e);
@@ -64,8 +62,7 @@ public class Statistics{
             mostSoldList[p.number - 1] ++;
          }
       }
-
-      
+   
       for(int i = 0; i < mostSoldList.length ; i++){
          totalSold += mostSoldList[i];
          if (mostSoldList[i] > maxSold){
