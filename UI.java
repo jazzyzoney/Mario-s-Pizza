@@ -64,24 +64,25 @@ public class UI{
       addButton.setBackground(Color.WHITE);
       
       //Add order:
-      addButton.addActionListener(e ->{
-         if(pizzaList.size() != 0){
-            OrderList.orderCounter ++;
-            Orders order = new Orders(OrderList.orderCounter);
-            OrderList.currentDate = new Date();
-            order.startTime = ("" + OrderList.date.format(OrderList.currentDate));
+      addButton.addActionListener(
+         e ->{
+            if(pizzaList.size() != 0){
+               OrderList.orderCounter ++;
+               Orders order = new Orders(OrderList.orderCounter);
+               OrderList.currentDate = new Date();
+               order.startTime = ("" + OrderList.date.format(OrderList.currentDate));
             
-            for (int i = 0; i< pizzaList.size(); i ++){
-               order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
+               for (int i = 0; i< pizzaList.size(); i ++){
+                  order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
+               }
+               OrderList.orderList.add(order);         
+               pizzaList.clear();
             }
-            OrderList.orderList.add(order);         
-            pizzaList.clear();
-         }
          
-         frame.dispose();
-         frame();
+            frame.dispose();
+            frame();
          
-      });
+         });
             
       aPanel.add(addButton, BorderLayout.SOUTH);
       
@@ -123,7 +124,7 @@ public class UI{
          final int pizzaNo = i;
          button.addActionListener(
             e ->{
-                pizzaList.add(pizzaNo);
+               pizzaList.add(pizzaNo);
             });
          menuPanel.add(button);
       }    
@@ -191,7 +192,7 @@ public class UI{
          }
          
          orderPanel.add(pizzaPanel);
-
+      
          JPanel orderButtonPanel = new JPanel ();//contains complete and delete buttons
          orderButtonPanel.setLayout(new BorderLayout());
          orderButtonPanel.setBackground(Color.WHITE);
@@ -212,13 +213,14 @@ public class UI{
          
          // complete order button:
          JButton completeButton = new JButton ("Færdig");
-         completeButton.addActionListener(e-> {
-            panelNo = finalpanelNo + 1;
-            OrderList.completeOrder(panelNo);
+         completeButton.addActionListener(
+            e-> {
+               panelNo = finalpanelNo + 1;
+               OrderList.completeOrder(panelNo);
             //frame.removeAll();
-            frame.dispose();
-            frame();
-         });
+               frame.dispose();
+               frame();
+            });
          orderButtonNorthPanel.add(completeButton);
          
          orderButtonPanel.add(orderButtonNorthPanel, BorderLayout.NORTH);
@@ -249,7 +251,7 @@ public class UI{
       
       JLabel deleteLabel = new JLabel();
       JLabel deleteLabel2= new JLabel();
-
+   
       deleteLabel.setText("        Vil du slette ordren?");
       deleteLabel2.setText("        Den vil ikke blive gemt.");
       labelPanel.add(deleteLabel);
@@ -300,7 +302,7 @@ public class UI{
       //load save file
       Statistics.loadsavefile();
       Statistics.mostSold();
-
+   
       
       JPanel statisticsPanel = new JPanel();
       statisticsPanel.setLayout(new GridLayout(20,1));
@@ -327,8 +329,8 @@ public class UI{
       statisticsPanel.add(mostSoldLabel);
       
       //alle ordres 
-        JLabel alleordersLabel = new JLabel("   Total orders: " + Statistics.completedOrders.size());
-        statisticsPanel.add(alleordersLabel);
+      JLabel alleordersLabel = new JLabel("   Total orders: " + Statistics.completedOrders.size());
+      statisticsPanel.add(alleordersLabel);
       
       sPanel.add(statisticsPanel);
       

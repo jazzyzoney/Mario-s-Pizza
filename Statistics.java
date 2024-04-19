@@ -25,7 +25,6 @@ public class Statistics{
             
             order.name = scanner.nextInt();
             order.completedTime = scanner.nextLine();
-            //System.out.println(order.time);
             
             while (scanner.hasNextInt()){
                int pizzaNo = scanner.nextInt();
@@ -34,11 +33,9 @@ public class Statistics{
                }
             }
             completedOrders.add(order);
-            
          }   
          scanner.close();
       }catch (Exception e) {
-         //System.out.println(e);
          fileDoesNotExist = true;
       }  
    } //end of load save file()  
@@ -47,7 +44,6 @@ public class Statistics{
       int turnover = 0;
       for(Orders o : completedOrders){
          for (Pizza p : o.pizzaList){
-            //System.out.println(p.name + " " + p.price);
             turnover += p.price;
          }
       }
@@ -60,14 +56,12 @@ public class Statistics{
    
    public static void mostSold(){
       mostSoldList = new int[Menu.menu.size()];
-      
-      
+   
       for(Orders o : completedOrders){
          for(Pizza p: o.pizzaList){
             mostSoldList[p.number - 1] ++;
          }
       }
-      
       totalSold = 0;
       for(int i = 0; i < mostSoldList.length ; i++){
          totalSold += mostSoldList[i];

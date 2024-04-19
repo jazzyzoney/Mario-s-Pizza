@@ -46,7 +46,6 @@ public class OrderList{
       
       
       for(Orders order : printList){
-         //System.out.println("Order Name: " + order.name + ", Date: " + order.date.format(currentDate));
          System.out.print(order.name + ": "); 
          String time;
          if (isCompleted){
@@ -65,7 +64,6 @@ public class OrderList{
    public static void completeOrder(int orderNo){
       orderNo --;
       currentDate = new Date();
-      //orderList.remove(orderNo);
       orderList.get(orderNo).completedTime = ("" + currentDate);
       
       try{
@@ -73,11 +71,7 @@ public class OrderList{
          if (!file.exists()){
             file.createNewFile();
          }
-         
-        // ArrayList<Orders> completedOrder = new ArrayList <Orders>();
-        // completedOrder.add(orderList.get(orderNo)); 
-        // F.saveStringArray(completedOrder, "pizza info");
-         
+
         // writing to file:
         writer = new FileWriter("Pizza Info", true);
         Date currentDate = new Date();
@@ -98,6 +92,5 @@ public class OrderList{
    public static void deleteOrder(int orderNo){
       orderNo--;
       orderList.remove(orderNo);
-      //System.out.println("Ordre nr. " + (orderNo + 1) + " slettet.");
    }
 }

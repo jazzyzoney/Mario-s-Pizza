@@ -5,10 +5,12 @@ public class Main{
    
    public static void main (String [] args){
       Menu.addPizzamenu(); 
-      SwingUtilities.invokeLater(()->{ 
-        new UI();  
-      });
+      
+      SwingUtilities.invokeLater( //dette kører swing 
+         ()->{ 
+            new UI();  
+         });
      
-     //TextUI.textUI();
+     //TextUI.textUI(); //dette kører tekstbaseret UI
    }
 }
