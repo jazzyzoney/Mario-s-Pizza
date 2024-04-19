@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class UI{
    
@@ -67,6 +68,9 @@ public class UI{
          if(pizzaList.size() != 0){
             OrderList.orderCounter ++;
             Orders order = new Orders(OrderList.orderCounter);
+            OrderList.currentDate = new Date();
+            order.startTime = ("" + OrderList.date.format(OrderList.currentDate));
+            
             for (int i = 0; i< pizzaList.size(); i ++){
                order.pizzaList.add(Menu.menu.get(pizzaList.get(i)));
             }
@@ -172,7 +176,7 @@ public class UI{
          orderHeaderPanel.add(orderNameLabel, BorderLayout.WEST);
          
          JLabel orderTimeLabel = new JLabel();
-         orderTimeLabel.setText(OrderList.orderList.get(i).startTime);
+         orderTimeLabel.setText(OrderList.orderList.get(i).startTime + "         ");
          orderHeaderPanel.add(orderTimeLabel, BorderLayout.EAST);
          
          orderPanel.add(orderHeaderPanel, BorderLayout.NORTH);

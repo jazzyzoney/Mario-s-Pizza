@@ -1,5 +1,3 @@
-import java.io.*;
-
 public class Pizza{
    int price =0; 
    int number = Menu.menu.size(); 
@@ -12,8 +10,5 @@ public class Pizza{
    
    public void printPizzas(){
       System.out.println(number + ". " + name + " " + price + ",-");
-   }
-   public String toString(){
-      return this.name + this.price;
    }
 }
