@@ -36,7 +36,6 @@ public class Statistics{
          
       }catch (Exception e) {
          System.out.println("Der er ikke nogen fil, prøv igen senere :)");
-         TextUI.textUI();
       }  
    } //end of load save file()  
    

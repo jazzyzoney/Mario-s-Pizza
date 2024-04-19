@@ -61,10 +61,7 @@ public class TextUI{
                break;
                
             case "statistik":
-              try{
                   Statistics.loadsavefile();
-               } catch (Exception e){ 
-               System.out.print("Der er ikke nogen fil, prøv igen senere :)"); 
                    break;
                }
                

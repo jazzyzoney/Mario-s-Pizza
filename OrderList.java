@@ -9,13 +9,17 @@ public class OrderList{
    static File file;
    static FileWriter writer;
    static int orderCounter=0; 
-   static Date currentDate = new Date();
+   static Date currentDate;
+   static SimpleDateFormat date = new SimpleDateFormat(" Y/MM/dd, HH:mm:ss");
    
    public static void addOrder(int addPizzas){// int addPizzas = the amount of pizzas to be added to the order.
       orderCounter++;
+      
+      currentDate = new Date();
+      
       int orderName = orderCounter;
       Orders order = new Orders(orderName);
-      order.startTime = ("" + currentDate);
+      order.startTime = ("" + date.format(currentDate));
       
       for(int i = 0; i < addPizzas; i++){//adding pizzas to order arraylist
          System.out.println("Pizza nr: " + (i+1));
@@ -60,6 +64,7 @@ public class OrderList{
    
    public static void completeOrder(int orderNo){
       orderNo --;
+      currentDate = new Date();
       //orderList.remove(orderNo);
       orderList.get(orderNo).completedTime = ("" + currentDate);
       
@@ -76,7 +81,7 @@ public class OrderList{
         // writing to file:
         writer = new FileWriter("Pizza Info", true);
         Date currentDate = new Date();
-        SimpleDateFormat date = new SimpleDateFormat(" Y MM dd HH mm ss");
+        
         writer.write("a\n" + orderList.get(orderNo).name + date.format(currentDate));//marks new order
         for (Pizza p : orderList.get(orderNo).pizzaList){
             writer.write("\n" + p.number);

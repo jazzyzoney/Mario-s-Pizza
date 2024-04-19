@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.io.*;
 
 public class Orders{
-   SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
+   static SimpleDateFormat date = new SimpleDateFormat("Y/MM/dd HH:mm");
    String completedTime; 
    String startTime;
    int name;
