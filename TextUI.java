@@ -61,7 +61,13 @@ public class TextUI{
                break;
                
             case "statistik":
-               Statistics.loadsavefile();
+              try{
+                  Statistics.loadsavefile();
+               } catch (Exception e){ 
+               System.out.print("Der er ikke nogen fil, prøv igen senere :)"); 
+                   break;
+               }
+               
                System.out.println("Vil du se 1: omsaetningen, eller 2: mest populaere pizza");
                stats();
                break;

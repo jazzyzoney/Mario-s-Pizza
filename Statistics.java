@@ -31,12 +31,13 @@ public class Statistics{
                }
             }
             completedOrders.add(order);
+            scanner.close();
          }   
          
       }catch (Exception e) {
-         System.out.println("fejl: " + e);
+         System.out.println("Der er ikke nogen fil, prøv igen senere :)");
+         TextUI.textUI();
       }  
-      scanner.close();
    } //end of load save file()  
    
    public static int totalTurnover(){
