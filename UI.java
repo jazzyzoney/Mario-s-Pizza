@@ -312,7 +312,7 @@ public class UI{
       statisticsPanel.add(datesLabel2);
       
       //total turnover
-      JLabel turnoverLabel = new JLabel("   Omsætning: " + Statistics.totalTurnover());
+      JLabel turnoverLabel = new JLabel("   Omsætning: " + Statistics.totalTurnover()+ " " +"Kr" +" ");
       statisticsPanel.add(turnoverLabel);
       //pizzas sold
       JLabel totalSoldLabel = new JLabel("   Pizzaer solgt i alt: " + Statistics.totalSold);
