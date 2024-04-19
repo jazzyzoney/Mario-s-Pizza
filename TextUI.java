@@ -61,17 +61,11 @@ public class TextUI{
                break;
                
             case "statistik":
-               Statistics.loadsavefile();
-              if (Statistics.fileDoesNotExist == true){
-                  System.out.println("Der er ikke nogen gemte ordre.");
-                  Statistics.fileDoesNotExist = false;
-                  break;
-              }else{
+                  Statistics.loadsavefile();
                
-                  System.out.println("Vil du se 1: omsaetningen, eller 2: mest populaere pizza");
-                  stats();
-                  break;
-               }
+               System.out.println("Vil du se 1: omsaetningen, eller 2: mest populaere pizza");
+               stats();
+               break;
          
             case "q":
                System.out.println("Tak for idag :)");

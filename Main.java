@@ -7,9 +7,8 @@ public class Main{
       Menu.addPizzamenu(); 
       /*SwingUtilities.invokeLater(()->{ 
         new UI();  
-      });
-     */
-     //Statistics.loadsavefile();
+      });*/
+     
      TextUI.textUI();
    }
 }
