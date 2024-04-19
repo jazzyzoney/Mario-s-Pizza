@@ -5,10 +5,10 @@ public class Main{
    
    public static void main (String [] args){
       Menu.addPizzamenu(); 
-      SwingUtilities.invokeLater(()->{ 
-        new UI();  
-     });
+      //SwingUtilities.invokeLater(()->{ 
+       // new UI();  
+     //});
      
-     //TextUI.textUI();
+     TextUI.textUI();
    }
 }

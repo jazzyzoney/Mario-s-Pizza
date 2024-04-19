@@ -320,8 +320,13 @@ public class UI{
       
       //mest populære
       JLabel mostSoldLabel = new JLabel("   Mest solgte pizza: " + Menu.menu.get(Statistics.mostSoldPizza).name);
-      sPanel.add(statisticsPanel);
+      statisticsPanel.add(mostSoldLabel);
       
+      //alle ordres 
+        JLabel alleordersLabel = new JLabel("   Total orders: " + Statistics.completedOrders.size());
+        statisticsPanel.add(alleordersLabel);
+      
+      sPanel.add(statisticsPanel);
       
       
       //Viser menukort, og hvor mange, som er blevet solgt.
